@@ -30,7 +30,9 @@ function OwnArticles() {
     <div>
       <div className="ownArticleList">
         {ownData &&
-          ownData.map((item, i) => <OwnArticle key={i} ownTask={item} />)}
+          ownData.map((item, i) => (
+            <OwnArticle key={i} ownTask={item} fetchOwnData={fetchOwnData} />
+          ))}
       </div>
     </div>
   );

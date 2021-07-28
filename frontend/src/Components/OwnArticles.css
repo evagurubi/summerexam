@@ -5,4 +5,20 @@
   align-items: center;
 }
 
+.ownArticleDiv {
+  margin: 20px;
+  border: 2px solid #232726;
+  padding: 10px;
+}
+
+textarea {
+  padding: 10px;
+  min-height: max-content;
+}
+
+textarea[class=content] {
+  min-height: 100px;
+  padding: 10px;
+}
+
 /*# sourceMappingURL=OwnArticles.css.map */
