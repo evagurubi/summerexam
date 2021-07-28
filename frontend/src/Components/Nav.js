@@ -30,6 +30,9 @@ const Nav = ({ user, setUser }) => {
             <Link style={navStyle} to="/contributions">
               <li>Contributions</li>
             </Link>
+            <Link style={navStyle} to="/ownarticles">
+              <li>Edit your activities</li>
+            </Link>
             <Link style={navStyle} to="/" onClick={signOut}>
               <li>Sign out</li>
             </Link>
