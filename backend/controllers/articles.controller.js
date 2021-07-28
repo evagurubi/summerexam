@@ -43,3 +43,18 @@ exports.listown = (req, res) => {
     res.status(200).send(result);
   });
 };
+
+exports.patchById = (req, res) => {
+  Article.patchArticle(req.params.id, req.body).then((result) => {
+    if (result.message) res.status(201).send({ message: result.message });
+    else {
+      res.status(201).send({ id: result._id });
+    }
+  });
+};
+
+exports.removeById = (req, res) => {
+  Article.removeById(req.params.id).then((result) => {
+    res.status(204).send({});
+  });
+};

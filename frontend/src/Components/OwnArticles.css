@@ -1,0 +1,8 @@
+.ownArticleList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/*# sourceMappingURL=OwnArticles.css.map */

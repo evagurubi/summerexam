@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import OwnArticle from "./OwnArticle";
+import "./OwnArticles.css";
 
 function OwnArticles() {
   const [ownData, setOwnData] = useState(null);
@@ -27,8 +28,10 @@ function OwnArticles() {
 
   return (
     <div>
-      {ownData &&
-        ownData.map((item, i) => <OwnArticle key={i} ownTask={item} />)}
+      <div className="ownArticleList">
+        {ownData &&
+          ownData.map((item, i) => <OwnArticle key={i} ownTask={item} />)}
+      </div>
     </div>
   );
 }

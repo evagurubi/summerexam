@@ -53,3 +53,24 @@ exports.findByUserID = (id) => {
     return result;
   });
 };
+
+exports.patchArticle = async (id, articleData) => {
+  return Article.findOneAndUpdate(
+    {
+      _id: id,
+    },
+    articleData
+  );
+};
+
+exports.removeById = (id) => {
+  return new Promise((resolve, reject) => {
+    Article.deleteMany({ _id: id }, (err) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(err);
+      }
+    });
+  });
+};

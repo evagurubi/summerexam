@@ -11,11 +11,37 @@ function OwnArticle({ ownTask }) {
 
   return (
     <div>
-      <input value={titleData} onChange={(e) => setTitleData(e.target.value)} />
-      <input
-        value={contentData}
-        onChange={(e) => setContentData(e.target.value)}
-      />
+      <form>
+        <textarea
+          value={titleData}
+          onChange={(e) => setTitleData(e.target.value)}
+        />{" "}
+        <br />
+        <textarea
+          value={keywordsData}
+          onChange={(e) => setKeywordsData(e.target.value)}
+        />
+        <br />
+        <textarea
+          value={warmerData}
+          onChange={(e) => setWarmerData(e.target.value)}
+        />
+        <br />
+        <textarea
+          value={contentData}
+          onChange={(e) => setContentData(e.target.value)}
+        />
+        <br />
+        <textarea
+          value={photoURLData}
+          onChange={(e) => setPhotoURLData(e.target.value)}
+        />
+        <br />
+        <textarea
+          value={originalURLData}
+          onChange={(e) => setOriginalURLData(e.target.value)}
+        />
+      </form>
     </div>
   );
 }
