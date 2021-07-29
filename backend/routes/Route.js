@@ -7,7 +7,7 @@ const ArticleController = require("../controllers/articles.controller");
 router.post("/login", UserController.insert);
 
 router.get("/", (req, res) => {
-  res.send("We are on home");
+  res.status(200).json({ message: "We are on home" });
 });
 
 router.get("/articles", ArticleController.list);
