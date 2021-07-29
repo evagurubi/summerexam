@@ -2,7 +2,13 @@ const Article = require("../services/article.service");
 const jwt_decode = require("jwt-decode");
 
 exports.list = (req, res) => {
-  Article.list().then((result) => {
+  let page = 0;
+  if (req.query.page) {
+    req.query.page = parseInt(req.query.page);
+    page = Number.isInteger(req.query.page) ? req.query.page : 0;
+  }
+
+  Article.listarticlepages(5, page).then((result) => {
     let returnArray = [];
     let myItem = {};
     result.map((item) => {

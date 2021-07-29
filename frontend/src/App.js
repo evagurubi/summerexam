@@ -31,6 +31,7 @@ function App() {
             <>
               {" "}
               <Route path="/" exact component={Home} />
+              <Route path="/articles" component={Articles} />
               <Route path="/articleswithtasks" component={ArticlesWithTasks} />
               <Route path="/contributions" component={Contributions} />
               <Route path="/ownarticles" component={OwnArticles} />

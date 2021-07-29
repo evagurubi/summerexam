@@ -40,6 +40,23 @@ exports.list = (keyword, content) => {
   });
 };
 
+exports.listarticlepages = (perPage, page) => {
+  return new Promise((resolve, reject) => {
+    Article.find()
+      .limit(perPage)
+      .skip(perPage * page)
+      .exec(function (err, articles) {
+        if (err) {
+          //console.log(err);
+          reject(err);
+        } else {
+          resolve(articles);
+          // console.log(articles);
+        }
+      });
+  });
+};
+
 exports.createArticle = async (articleBody, id) => {
   const article = new Article({ ...articleBody, userId: id });
   console.log(article);

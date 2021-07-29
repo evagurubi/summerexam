@@ -5,7 +5,7 @@ const Article = ({ el }) => {
   return (
     <div className="article">
       <h4>{el.title}</h4>
-      <p>{el.content}</p>
+      <h2>{el.content}</h2>
     </div>
   );
 };

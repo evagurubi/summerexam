@@ -24,6 +24,9 @@ const Nav = ({ user, setUser }) => {
             <Link style={navStyle} to="/">
               <li>About</li>
             </Link>
+            <Link style={navStyle} to="/articles">
+              <li>Articles</li>
+            </Link>
             <Link style={navStyle} to="/articleswithtasks">
               <li>Articles and tasks</li>
             </Link>

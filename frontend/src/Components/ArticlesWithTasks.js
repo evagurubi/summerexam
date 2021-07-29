@@ -5,19 +5,22 @@ import ArticleWithTask from "./ArticleWithTask";
 const ArticlesWithTasks = () => {
   const [articleData, setArticleData] = useState(null);
   const [keywordSearch, setKeywordSearch] = useState(true);
-  const [inputText, setSetInputText] = useState("");
+  const [inputText, setInputText] = useState("");
   const [query, setQuery] = useState("");
 
-  const searchHandler = (e) => {
-    //setShowAll(false);
+  const handleSearchBy = () => {
+    setInputText("");
+    setKeywordSearch(!keywordSearch);
+    fetchData();
+  };
 
-    setSetInputText(e.target.value);
+  const searchHandler = (e) => {
+    setInputText(e.target.value);
     if (keywordSearch) {
       setQuery(`keyword=${inputText}`);
     } else {
       setQuery(`content=${inputText}`);
     }
-    //if (inputText.length > 1) fetchReviewsWithQuery();
   };
 
   const requestOptions = {
@@ -45,9 +48,7 @@ const ArticlesWithTasks = () => {
 
   return (
     <div className="articles">
-      <button onClick={() => setKeywordSearch(!keywordSearch)}>
-        Search by
-      </button>
+      <button onClick={handleSearchBy}>Search by</button>
 
       <input
         placeholder={keywordSearch ? "KEYWORD" : "CONTENT"}
@@ -55,7 +56,7 @@ const ArticlesWithTasks = () => {
         value={inputText}
       ></input>
       {articleData &&
-        articleData.map((el, i) => <ArticleWithTask key={i} el={el} />)}
+        articleData.map((el, i) => <ArticleWithTask key={i} article={el} />)}
     </div>
   );
 };
