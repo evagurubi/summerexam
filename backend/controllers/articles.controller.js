@@ -23,7 +23,7 @@ exports.listall = (req, res) => {
   let keyword = null;
   let content = null;
   if (req.query) {
-    console.log(req.query);
+    //  console.log(req.query);
     if (req.query.keyword) {
       keyword = req.query.keyword;
     }

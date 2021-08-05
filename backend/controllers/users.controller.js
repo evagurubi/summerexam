@@ -31,14 +31,14 @@ exports.insert = (req, res) => {
 
       const decoded = jwt_decode(token);
 
-      console.log(decoded.sub);
+      //console.log(decoded.sub);
       User.createUser(decoded);
 
       const myToken = jwt.sign(
         { id: decoded.sub, name: decoded.name, email: decoded.email },
         process.env.TOKEN_SECRET
       );
-      console.log(myToken);
+      //console.log(myToken);
       res.header("auth-token", token).send(myToken);
     });
 };
