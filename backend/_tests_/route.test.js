@@ -41,6 +41,7 @@ describe("Tests responses with no authorization", () => {
     expect(response.status).toBe(401);
   });
 });
+
 describe("Tests responses with authorization", () => {
   it("Should send 200 when there's authorization with appropriate body", async () => {
     //given
