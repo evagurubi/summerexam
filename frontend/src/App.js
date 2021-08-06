@@ -4,6 +4,7 @@ import "./App.css";
 import Home from "./Components/Home";
 import Nav from "./Components/Nav";
 import Articles from "./Components/Articles";
+import Holidays from "./Components/Holidays";
 import ArticlesWithTasks from "./Components/ArticlesWithTasks";
 import OwnArticles from "./Components/OwnArticles";
 import Contributions from "./Components/Contributions";
@@ -32,6 +33,7 @@ function App() {
               {" "}
               <Route path="/" exact component={Home} />
               <Route path="/articles" component={Articles} />
+              <Route path="/holidays" component={Holidays} />
               <Route path="/articleswithtasks" component={ArticlesWithTasks} />
               <Route path="/contributions" component={Contributions} />
               <Route path="/ownarticles" component={OwnArticles} />
@@ -41,7 +43,8 @@ function App() {
               {" "}
               <Route path="/login" component={Login} />
               <Route path="/" exact component={Home} />
-              <Route path="/articles" component={Articles} />{" "}
+              <Route path="/articles" component={Articles} />
+              <Route path="/holidays" component={Holidays} />{" "}
             </>
           )}
         </Switch>

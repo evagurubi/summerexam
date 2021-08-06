@@ -2,6 +2,7 @@ const router = require("express").Router();
 const UserController = require("../controllers/users.controller");
 const verifyToken = require("../middlewares/veryfyToken");
 const ArticleController = require("../controllers/articles.controller");
+const HolidayController = require("../controllers/holidays.controller");
 
 //Login with Google
 router.post("/login", UserController.insert);
@@ -11,6 +12,8 @@ router.get("/", (req, res) => {
 });
 
 router.get("/articles", ArticleController.list);
+
+router.get("/ukholidays", HolidayController.uklist);
 
 router.get("/articleswithtasks", verifyToken, ArticleController.listall);
 
