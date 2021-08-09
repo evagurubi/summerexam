@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const Login = () => {
   const code = new URL(window.location.href).searchParams.get("code");
-  // console.log(code);
+
   const token = { code: code };
 
   useEffect(() => {

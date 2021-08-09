@@ -15,6 +15,10 @@ router.get("/articles", ArticleController.list);
 
 router.get("/ukholidays", HolidayController.uklist);
 
+router.get("/usholidays", HolidayController.uslist);
+
+router.get("/ausholidays", HolidayController.auslist);
+
 router.get("/articleswithtasks", verifyToken, ArticleController.listall);
 
 router.post("/articles", verifyToken, ArticleController.insert);

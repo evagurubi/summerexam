@@ -3,7 +3,7 @@ const app = require("../server"); // Link to your server file
 const jwt = require("jsonwebtoken");
 const supertest = require("supertest");
 const request = supertest(app);
-const db = require("./db");
+const db = require("./utils/db");
 
 beforeAll(async () => await db.connectToDatabase());
 
@@ -13,22 +13,6 @@ afterEach(async () => {
 
 afterAll(async () => {
   await db.closeDatabase();
-});
-
-describe("Tests the test environment", () => {
-  it("Tests to see if Jest works", () => {
-    expect(1).toBe(1);
-  });
-
-  it("Gets the test endpoint", async () => {
-    // Sends GET Request to /test endpoint
-    //when
-    const response = await request.get("/api");
-    //request.get
-    //then
-    expect(response.status).toBe(200);
-    expect(response.body.message).toBe("We are on home");
-  });
 });
 
 describe("Tests responses with no authorization", () => {
@@ -49,7 +33,7 @@ describe("Tests responses with authorization", () => {
     const myToken = jwt.sign({ someone }, process.env.TOKEN_SECRET);
     // console.log("token:", myToken);
     //when
-    console.log("My secret:", process.env.TOKEN_SECRET);
+    // console.log("My secret:", process.env.TOKEN_SECRET);
     const response = await request
       .get("/api/articleswithtasks")
       .set("auth-token", `${myToken}`);

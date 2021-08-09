@@ -28,12 +28,12 @@ function App() {
       <div className="App">
         <Nav user={user} setUser={setUser} />
         <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/articles" component={Articles} />
+          <Route path="/holidays" component={Holidays} />
           {user ? (
             <>
               {" "}
-              <Route path="/" exact component={Home} />
-              <Route path="/articles" component={Articles} />
-              <Route path="/holidays" component={Holidays} />
               <Route path="/articleswithtasks" component={ArticlesWithTasks} />
               <Route path="/contributions" component={Contributions} />
               <Route path="/ownarticles" component={OwnArticles} />
@@ -41,10 +41,7 @@ function App() {
           ) : (
             <>
               {" "}
-              <Route path="/login" component={Login} />
-              <Route path="/" exact component={Home} />
-              <Route path="/articles" component={Articles} />
-              <Route path="/holidays" component={Holidays} />{" "}
+              <Route path="/login" component={Login} />{" "}
             </>
           )}
         </Switch>

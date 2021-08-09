@@ -38,7 +38,7 @@ const ArticlesWithTasks = () => {
       })
       .then((json) => {
         setArticleData(json);
-        console.log(json);
+        //console.log(json);
       });
   };
 

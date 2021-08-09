@@ -12,6 +12,7 @@ exports.connectToDatabase = async () => {
     useCreateIndex: true,
     useFindAndModify: false,
   });
+  console.log("connected");
 };
 //Remove all data from all db collections
 exports.clearDatabase = async () => {
@@ -28,3 +29,7 @@ exports.closeDatabase = async () => {
   await mongoose.connection.close();
   await mongoServer.stop();
 };
+
+it("Tests to see if Jest works", () => {
+  expect(1).toBe(1);
+});

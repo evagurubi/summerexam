@@ -8,6 +8,7 @@ exports.createUser = async (decoded) => {
       name: decoded.name,
       sub: decoded.sub,
     });
+    // console.log("user:", user);
     return user.save();
   }
 };

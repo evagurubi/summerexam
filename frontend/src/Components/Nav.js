@@ -19,17 +19,17 @@ const Nav = ({ user, setUser }) => {
     <nav>
       <h1>LOGO</h1>
       <ul className="nav-links">
+        <Link style={navStyle} to="/">
+          <li>About</li>
+        </Link>
+        <Link style={navStyle} to="/articles">
+          <li>Articles</li>
+        </Link>
+        <Link style={navStyle} to="/holidays">
+          <li>Holidays</li>
+        </Link>
         {user ? (
           <>
-            <Link style={navStyle} to="/">
-              <li>About</li>
-            </Link>
-            <Link style={navStyle} to="/articles">
-              <li>Articles</li>
-            </Link>
-            <Link style={navStyle} to="/holidays">
-              <li>Holidays</li>
-            </Link>
             <Link style={navStyle} to="/articleswithtasks">
               <li>Articles and tasks</li>
             </Link>
@@ -45,15 +45,6 @@ const Nav = ({ user, setUser }) => {
           </>
         ) : (
           <>
-            <Link style={navStyle} to="/">
-              <li>About</li>
-            </Link>
-            <Link style={navStyle} to="/articles">
-              <li>Articles</li>
-            </Link>
-            <Link style={navStyle} to="/holidays">
-              <li>Holidays</li>
-            </Link>
             <Link style={navStyle} to="/" onClick={loginAuth}>
               <li>Login</li>
             </Link>
