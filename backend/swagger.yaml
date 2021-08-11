@@ -1,0 +1,323 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Language School English Department
+  description: This is a language school English department collaboration server.
+servers:
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/e8637/exam/1.0.0
+  - url: https://localhost:5000/api
+
+tags:
+  - name: "user"
+    description: "Everything about users in the DB"
+  - name: "articles"
+    description: Operations about articles
+  - name: "holidays"
+    description: Operations about holidays
+paths:
+  /login:
+    post:
+      tags:
+        - "user"
+      summary: Logs user into the system and if user is new adds them to the DB
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Code"
+      responses:
+        "200":
+          description: Successfully created a new user
+
+        "400":
+          $ref: "#/components/responses/400Error"
+        "405":
+          description: "Invalid input"
+  /articles:
+    get:
+      tags:
+        - "articles"
+      summary: "Lists all available articles in DB"
+      parameters:
+        - name: "page"
+          in: "query"
+          required: false
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "A list of articles"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/SimpleArticle"
+        "400":
+          description: "Invalid status value"
+    post:
+      tags:
+        - "articles"
+      summary: "Add a new article"
+      parameters:
+        - name: auth-token
+          required: true
+          in: header
+          description: Needed as authorization to use the route
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Article"
+      responses:
+        "201":
+          description: Created
+  /articleswithtasks:
+    get:
+      tags:
+        - "articles"
+      summary: "Lists available articles in DB together with activities for logged in users"
+      parameters:
+        - name: keyword
+          in: query
+          description: Narrows down list of articles based on keywords
+          schema:
+            type: string
+        - name: content
+          in: query
+          description: Narrows down list of articles based on words on content
+          schema:
+            type: string
+        - name: auth-token
+          required: true
+          in: header
+          description: Needed as authorization to use the route
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "A list of articles"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Article"
+        "400":
+          description: "Invalid status value"
+  /ownarticles:
+    get:
+      tags:
+        - "articles"
+      summary: "Lists available articles posted by logged in user in DB together with activities."
+      parameters:
+        - name: auth-token
+          required: true
+          in: header
+          description: Needed as authorization to use the route
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "A list of articles"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Article"
+        "400":
+          description: "Invalid status value"
+  /ownarticles/{id}:
+    patch:
+      tags:
+        - "articles"
+      summary: "Modifies specific article of given user"
+      parameters:
+        - name: id
+          required: true
+          in: path
+          description: Needed to define which article is modified
+          schema:
+            type: string
+        - name: auth-token
+          required: true
+          in: header
+          description: Needed as authorization to use the route
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "OK"
+        "400":
+          description: "Invalid status value"
+    delete:
+      tags:
+        - "articles"
+      summary: "Deletes specific article of given user."
+      parameters:
+        - name: id
+          required: true
+          in: path
+          description: Needed to define which article is modified
+          schema:
+            type: string
+        - name: auth-token
+          required: true
+          in: header
+          description: Needed as authorization to use the route
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "OK"
+        "400":
+          description: "Invalid status value"
+  /ukholidays:
+    get:
+      tags:
+        - "holidays"
+      summary: "Gives back holiday in the UK (if there is one) on the given day"
+      parameters:
+        - name: "year"
+          in: "query"
+          required: true
+          schema:
+            type: string
+        - name: "month"
+          in: "query"
+          required: true
+          schema:
+            type: string
+        - name: "day"
+          in: "query"
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "Sends back holiday as a message. If the given day is not a holiday, the message contains empty strings."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Holiday"
+        "400":
+          description: "Invalid status value"
+  /usholidays:
+    get:
+      tags:
+        - "holidays"
+      summary: "Gives back holiday in the US (if there is one) on the given day"
+      parameters:
+        - name: "year"
+          in: "query"
+          required: true
+          schema:
+            type: string
+        - name: "month"
+          in: "query"
+          required: true
+          schema:
+            type: string
+        - name: "day"
+          in: "query"
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "Sends back holiday as a message. If the given day is not a holiday, the message contains empty strings."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Holiday"
+        "400":
+          description: "Invalid status value"
+  /ausholidays:
+    get:
+      tags:
+        - "holidays"
+      summary: "Gives back holiday in Australia (if there is one) on the given day"
+      parameters:
+        - name: "year"
+          in: "query"
+          required: true
+          schema:
+            type: string
+        - name: "month"
+          in: "query"
+          required: true
+          schema:
+            type: string
+        - name: "day"
+          in: "query"
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "Sends back holiday as a message. If the given day is not a holiday, the message contains empty strings."
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Holiday"
+        "400":
+          description: "Invalid status value"
+components:
+  schemas:
+    Code:
+      type: object
+      properties:
+        code:
+          type: string
+    SimpleArticle:
+      type: object
+      properties:
+        title:
+          type: string
+        content:
+          type: string
+    Article:
+      type: object
+      properties:
+        title:
+          type: string
+        keywords:
+          type: string
+        warmer:
+          type: string
+        content:
+          type: string
+        photoURL:
+          type: string
+        originalURL:
+          type: string
+        userID:
+          type: string
+    Holiday:
+      type: object
+      properties:
+        message:
+          type: object
+          properties:
+            name:
+              type: string
+            type:
+              type: string
+            date:
+              type: string
+  responses:
+    400Error:
+      description: Invalid request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              message:
+                type: string

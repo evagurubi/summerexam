@@ -1,5 +1,5 @@
 require("dotenv").config({ path: ".env.test" });
-const jwt = require("jsonwebtoken");
+//const jwt = require("jsonwebtoken");
 const app = require("../server");
 const supertest = require("supertest");
 const request = supertest(app);
