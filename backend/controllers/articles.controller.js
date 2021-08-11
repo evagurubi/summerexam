@@ -45,9 +45,15 @@ exports.insert = (req, res) => {
 
 exports.listown = (req, res) => {
   const decoded = jwt_decode(req.header("auth-token"));
-  Article.findByUserID(decoded.id).then((result) => {
-    res.status(200).send(result);
-  });
+  console.log(decoded);
+  if (decoded.isAdmin === true)
+    Article.list().then((result) => {
+      res.status(200).send(result);
+    });
+  else
+    Article.findByUserID(decoded.id).then((result) => {
+      res.status(200).send(result);
+    });
 };
 
 exports.patchById = (req, res) => {

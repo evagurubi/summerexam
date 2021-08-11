@@ -6,7 +6,7 @@ const jwt_decode = require("jwt-decode");
 
 exports.insert = async (req, res) => {
   const code = req.body.code;
-  console.log(code);
+  //console.log(code);
 
   const options = {
     url: "https://oauth2.googleapis.com/token",
@@ -30,12 +30,20 @@ exports.insert = async (req, res) => {
   // console.log(token);
 
   const decoded = jwt_decode(token);
-
   //console.log(decoded);
-  await User.createUser(decoded);
+  let adminRights;
+  if (decoded.sub === "117490664349062974708") adminRights = true;
+  else adminRights = false;
+
+  await User.createUser(decoded, adminRights);
 
   const myToken = jwt.sign(
-    { id: decoded.sub, name: decoded.name, email: decoded.email },
+    {
+      id: decoded.sub,
+      name: decoded.name,
+      email: decoded.email,
+      isAdmin: adminRights,
+    },
     process.env.TOKEN_SECRET
   );
   //console.log(myToken);
