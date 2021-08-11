@@ -2,33 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-.App {
   background-color: aqua;
-  height: max-content;
-  width: 100vw;
-}
-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 10vh;
-  max-height: 10vh;
-  background-color: rgb(35, 39, 38);
-}
-.nav-links {
-  list-style: none;
-  display: flex;
-  width: 50%;
-  justify-content: space-around;
-  align-items: center;
-}
-#logo {
-  position: absolute;
-  padding-top: 0;
-  margin-top: 0;
-  z-index: 3;
 }
 
 .intro {

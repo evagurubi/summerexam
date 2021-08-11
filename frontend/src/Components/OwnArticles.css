@@ -1,8 +1,15 @@
 .ownArticleList {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .ownArticleDiv {
@@ -13,12 +20,13 @@
 
 textarea {
   padding: 10px;
+  min-height: -webkit-max-content;
+  min-height: -moz-max-content;
   min-height: max-content;
 }
 
-textarea[class=content] {
+textarea[class="content"] {
   min-height: 100px;
   padding: 10px;
 }
-
 /*# sourceMappingURL=OwnArticles.css.map */

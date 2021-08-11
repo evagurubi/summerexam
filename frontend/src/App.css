@@ -1,37 +1,9 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-.App {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   background-color: aqua;
-  height: max-content;
-  width: 100vw;
-}
-
-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 10vh;
-  max-height: 10vh;
-  background-color: #232726;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  width: 50%;
-  justify-content: space-around;
-  align-items: center;
-}
-
-#logo {
-  position: absolute;
-  padding-top: 0;
-  margin-top: 0;
-  z-index: 3;
 }
 
 .intro {
@@ -45,14 +17,4 @@ nav {
 .article {
   margin-top: 30px;
 }
-
-.accountmenu {
-  background-color: brown;
-  height: 150px;
-  position: absolute;
-  padding-top: 0;
-  margin-top: 0;
-  z-index: 3;
-}
-
 /*# sourceMappingURL=App.css.map */

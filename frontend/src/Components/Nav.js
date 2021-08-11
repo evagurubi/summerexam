@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+import "./Nav.css";
 
 const Nav = ({ user, setUser }) => {
   const navStyle = {
     color: "#8f858b",
   };
+  const [click, setClick] = useState(false);
+  const [button, setButton] = useState(true);
+
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
+
+  const showButton = () => {
+    if (window.innerWidth <= 960) {
+      setButton(false);
+    } else {
+      setButton(true);
+    }
+  };
+
+  useEffect(() => {
+    showButton();
+    window.addEventListener("resize", showButton);
+    return function cleanup() {
+      window.removeEventListener("resize", showButton);
+    };
+  }, []);
 
   const loginAuth = () => {
     window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=518141647017-rpsvnbf89h0smsrelnndhqn0ooj11oq6.apps.googleusercontent.com&scope=openid%20email%20profile&redirect_uri=http%3A//localhost:3000/login&prompt=select_account`;
@@ -17,42 +39,106 @@ const Nav = ({ user, setUser }) => {
   };
 
   return (
-    <nav>
-      <h1>LOGO</h1>
-      <ul className="nav-links">
-        <Link style={navStyle} to="/">
-          <li>About</li>
+    <nav className="navbar">
+      <div className="navbar-container container">
+        <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
+          <h1>LOGO</h1>
         </Link>
-        <Link style={navStyle} to="/articles">
-          <li>Articles</li>
-        </Link>
-        <Link style={navStyle} to="/holidays">
-          <li>Holidays</li>
-        </Link>
-        {user ? (
-          <>
-            <Link style={navStyle} to="/articleswithtasks">
-              <li>Articles and tasks</li>
+        <div className="menu-icon" onClick={handleClick}>
+          {click ? <FaTimes /> : <FaBars />}
+        </div>
+        <ul className={click ? "nav-menu active" : "nav-menu"}>
+          <li className="nav-item">
+            {" "}
+            <Link className="nav-links" onClick={closeMobileMenu} to="/">
+              About
             </Link>
-            <Link style={navStyle} to="/contributions">
-              <li>Contributions</li>
+          </li>
+          <li className="nav-item">
+            {" "}
+            <Link
+              className="nav-links"
+              onClick={closeMobileMenu}
+              to="/articles"
+            >
+              Articles
             </Link>
-            <Link style={navStyle} to="/ownarticles">
-              <li>Edit your activities</li>
+          </li>
+          <li className="nav-item">
+            {" "}
+            <Link
+              className="nav-links"
+              onClick={closeMobileMenu}
+              to="/holidays"
+            >
+              Holidays
             </Link>
-            <Link style={navStyle} to="/ownaccount">
-              <li>Account</li>
-            </Link>
-            <Link style={navStyle} to="/" onClick={signOut}>
-              <button>SIGN OUT</button>
-            </Link>
-          </>
-        ) : (
-          <>
-            <button onClick={loginAuth}>LOGIN</button>
-          </>
-        )}
-      </ul>
+          </li>
+          {user ? (
+            <>
+              <li className="nav-item">
+                <Link
+                  className="nav-links"
+                  onClick={closeMobileMenu}
+                  to="/articleswithtasks"
+                >
+                  Articles and tasks
+                </Link>
+              </li>
+              <li className="nav-item">
+                {" "}
+                <Link
+                  className="nav-links"
+                  onClick={closeMobileMenu}
+                  to="/contributions"
+                >
+                  Contributions
+                </Link>
+              </li>
+              <li className="nav-item">
+                {" "}
+                <Link
+                  className="nav-links"
+                  onClick={closeMobileMenu}
+                  to="/ownarticles"
+                >
+                  Edit your activities
+                </Link>
+              </li>
+              <li className="nav-item">
+                {" "}
+                <Link
+                  className="nav-links"
+                  onClick={closeMobileMenu}
+                  to="/ownaccount"
+                >
+                  Account
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link
+                  className="nav-links"
+                  onClick={closeMobileMenu}
+                  to="/"
+                  onClick={signOut}
+                >
+                  <button>SIGN OUT</button>
+                </Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li className="nav-item">
+                {" "}
+                <div className="nav-links">
+                  {" "}
+                  <button onClick={loginAuth}>LOGIN</button>
+                </div>
+              </li>
+            </>
+          )}
+        </ul>
+      </div>
     </nav>
   );
 };
