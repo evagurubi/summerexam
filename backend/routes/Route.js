@@ -6,6 +6,8 @@ const HolidayController = require("../controllers/holidays.controller");
 
 //Login with Google
 router.post("/login", UserController.insert);
+router.get("/account", verifyToken, UserController.listUser);
+router.delete("/account", verifyToken, UserController.removeUser);
 
 router.get("/", (req, res) => {
   res.status(200).json({ message: "We are on home" });

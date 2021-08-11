@@ -2,7 +2,7 @@ import React from "react";
 
 function USHoliday({ USdata }) {
   let holidayType = USdata.type.toLowerCase().split(" ");
-  if (holidayType[holidayType.length - 1] != "holiday")
+  if (holidayType[holidayType.length - 1] !== "holiday")
     holidayType = holidayType + " holiday";
   else holidayType = USdata.type.toLowerCase();
   console.log(holidayType);

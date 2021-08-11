@@ -35,6 +35,44 @@ paths:
           $ref: "#/components/responses/400Error"
         "405":
           description: "Invalid input"
+  /account:
+    get:
+      tags:
+        - "user"
+      summary: "Lists user data."
+      parameters:
+        - name: auth-token
+          required: true
+          in: header
+          description: Needed as authorization to use the route
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "400":
+          description: "Invalid status value"
+    delete:
+      tags:
+        - "user"
+      summary: "Deletes user account."
+      parameters:
+        - name: auth-token
+          required: true
+          in: header
+          description: Needed as authorization to use the route
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "OK"
+        "400":
+          description: "Invalid status value"
+
   /articles:
     get:
       tags:
@@ -270,6 +308,19 @@ paths:
           description: "Invalid status value"
 components:
   schemas:
+    User:
+      type: object
+      properties:
+        _id:
+          type: string
+        email:
+          type: string
+        name:
+          type: string
+        sub:
+          type: string
+        isAdmin:
+          type: boolean
     Code:
       type: object
       properties:

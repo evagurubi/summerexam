@@ -13,3 +13,23 @@ exports.createUser = async (decoded, adminRights) => {
     return user.save();
   }
 };
+
+exports.removeUser = (id) => {
+  return new Promise((resolve, reject) => {
+    User.deleteMany({ sub: id }, (err) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(err);
+      }
+    });
+  });
+};
+
+exports.listUser = (id) => {
+  return User.findOne({ sub: id }).then((result) => {
+    //result = result.toJSON();
+
+    return result;
+  });
+};

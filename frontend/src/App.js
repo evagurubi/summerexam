@@ -8,6 +8,7 @@ import Holidays from "./Components/Holidays";
 import ArticlesWithTasks from "./Components/ArticlesWithTasks";
 import OwnArticles from "./Components/OwnArticles";
 import Contributions from "./Components/Contributions";
+import OwnAccount from "./Components/OwnAccount";
 import Login from "./Components/Login";
 import jwt_decode from "jwt-decode";
 
@@ -37,6 +38,9 @@ function App() {
               <Route path="/articleswithtasks" component={ArticlesWithTasks} />
               <Route path="/contributions" component={Contributions} />
               <Route path="/ownarticles" component={OwnArticles} />
+              <Route path="/ownaccount">
+                <OwnAccount setUser={setUser} />
+              </Route>
             </>
           ) : (
             <>

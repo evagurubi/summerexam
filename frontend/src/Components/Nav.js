@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Nav = ({ user, setUser }) => {
   const navStyle = {
@@ -39,15 +40,16 @@ const Nav = ({ user, setUser }) => {
             <Link style={navStyle} to="/ownarticles">
               <li>Edit your activities</li>
             </Link>
+            <Link style={navStyle} to="/ownaccount">
+              <li>Account</li>
+            </Link>
             <Link style={navStyle} to="/" onClick={signOut}>
-              <li>Sign out</li>
+              <button>SIGN OUT</button>
             </Link>
           </>
         ) : (
           <>
-            <Link style={navStyle} to="/" onClick={loginAuth}>
-              <li>Login</li>
-            </Link>
+            <button onClick={loginAuth}>LOGIN</button>
           </>
         )}
       </ul>

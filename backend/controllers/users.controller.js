@@ -46,6 +46,22 @@ exports.insert = async (req, res) => {
     },
     process.env.TOKEN_SECRET
   );
-  //console.log(myToken);
+  console.log(myToken);
   res.header("auth-token", token).send(myToken);
+};
+
+exports.removeUser = (req, res) => {
+  const decoded = jwt_decode(req.header("auth-token"));
+  console.log(decoded);
+  User.removeUser(decoded.id).then((result) => {
+    res.status(204).send({});
+  });
+};
+
+exports.listUser = (req, res) => {
+  const decoded = jwt_decode(req.header("auth-token"));
+  console.log(decoded);
+  User.listUser(decoded.id).then((result) => {
+    res.status(200).send(result);
+  });
 };

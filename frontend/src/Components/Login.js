@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 const Login = () => {
   const code = new URL(window.location.href).searchParams.get("code");

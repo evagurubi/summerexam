@@ -3,7 +3,7 @@ import React from "react";
 function AusHoliday({ Ausdata }) {
   let holidayType = Ausdata.type.toLowerCase().split(" ");
   console.log(holidayType);
-  if (holidayType[holidayType.length - 1] != "holiday")
+  if (holidayType[holidayType.length - 1] !== "holiday")
     holidayType = holidayType + " holiday";
   else holidayType = Ausdata.type.toLowerCase();
 
