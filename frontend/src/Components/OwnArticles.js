@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import OwnArticle from "./OwnArticle";
-import "./OwnArticles.css";
+import "./Articles.css";
 
 function OwnArticles() {
   const [ownData, setOwnData] = useState(null);
@@ -27,12 +27,15 @@ function OwnArticles() {
   }, []);
 
   return (
-    <div>
-      <div className="ownArticleList">
-        {ownData &&
-          ownData.map((item, i) => (
-            <OwnArticle key={i} ownTask={item} fetchOwnData={fetchOwnData} />
-          ))}
+    <div className="articles">
+      <div className="articlescontent">
+        <h2>Update or delete your articles, as you wish</h2>
+        <div className="articleitems">
+          {ownData &&
+            ownData.map((item, i) => (
+              <OwnArticle key={i} ownTask={item} fetchOwnData={fetchOwnData} />
+            ))}
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Article from "./Article";
+import "./Articles.css";
 
 const Articles = () => {
   const [data, setData] = useState([]);
@@ -46,11 +47,16 @@ const Articles = () => {
 
   return (
     <div className="articles">
-      {data.length > 0 ? (
-        data.map((el, i) => <Article key={i} el={el} />)
-      ) : (
-        <p>Loading...</p>
-      )}
+      <div className="articlescontent">
+        <h2>Authentic material for your students</h2>
+        <div className="articleitems">
+          {data.length > 0 ? (
+            data.map((el, i) => <Article key={i} el={el} />)
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

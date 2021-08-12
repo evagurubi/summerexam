@@ -59,7 +59,7 @@
 }
 
 .nav-item:hover {
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid #fff;
 }
 
 .nav-links {
@@ -79,7 +79,7 @@
   display: none;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1000px) {
   .NavbarItems {
     position: relative;
   }
@@ -97,7 +97,8 @@
   }
 
   .nav-menu.active {
-    background: #1c2237;
+    background: #fff;
+
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
@@ -109,10 +110,11 @@
     padding: 2rem;
     width: 100%;
     display: table;
+    color: rgb(99, 110, 108);
   }
 
   .nav-links:hover {
-    color: #f00946;
+    color: #fff;
     transform: scale(1.2);
     transition: all 0.3s ease;
   }

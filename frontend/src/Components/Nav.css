@@ -82,7 +82,7 @@
 }
 
 .nav-item:hover {
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid #fff;
 }
 
 .nav-links {
@@ -106,7 +106,7 @@
   display: none;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1000px) {
   .NavbarItems {
     position: relative;
   }
@@ -128,7 +128,7 @@
     transition: all 0.5s ease;
   }
   .nav-menu.active {
-    background: #1c2237;
+    background: #fff;
     left: 0;
     opacity: 1;
     -webkit-transition: all 0.5s ease;
@@ -140,9 +140,10 @@
     padding: 2rem;
     width: 100%;
     display: table;
+    color: #636e6c;
   }
   .nav-links:hover {
-    color: #f00946;
+    color: #fff;
     -webkit-transform: scale(1.2);
             transform: scale(1.2);
     -webkit-transition: all 0.3s ease;
