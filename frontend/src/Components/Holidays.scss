@@ -1,13 +1,13 @@
 $dark1: rgb(99, 110, 108);
 
-.homecontainer {
+.holidayscontainer {
   position: relative;
   height: 100vh;
   min-height: 800px;
   margin: 0 auto;
 }
 
-#image {
+#nyimage {
   position: fixed;
   top: 0;
   left: 0;
@@ -15,7 +15,7 @@ $dark1: rgb(99, 110, 108);
   height: 100%;
   object-fit: cover;
 }
-.intro {
+.holidays {
   position: absolute;
   top: 0;
   left: 0;
@@ -27,7 +27,7 @@ $dark1: rgb(99, 110, 108);
   align-items: center;
   justify-content: center;
 
-  .introcontent {
+  .holidayscontent {
     margin: 0 1.5rem;
     background: rgba($dark1, 0.7);
     backdrop-filter: blur(2px);

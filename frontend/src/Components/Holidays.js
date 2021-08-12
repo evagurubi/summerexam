@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import UKHoliday from "./UKHoliday";
 import USHoliday from "./USHoliday";
 import AusHoliday from "./AusHoliday";
+import New_York from "../Images/New_york_times_square.jpg";
+import "./Holidays.css";
 
 function Holidays() {
   let dateObj = new Date();
@@ -73,13 +75,18 @@ function Holidays() {
   }, []);
 
   return (
-    <div>
-      <h4>
-        It is {newdate}, {dayname} today.
-      </h4>
-      {UKdata && <UKHoliday UKdata={UKdata.message} />}
-      {USdata && <USHoliday USdata={USdata.message} />}
-      {Ausdata && <AusHoliday Ausdata={Ausdata.message} />}
+    <div className="holidayscontainer">
+      <img src={New_York} id="nyimage" />
+      <div className="holidays">
+        <div className="holidayscontent">
+          <h4>
+            It is {newdate}, {dayname} today.
+          </h4>
+          {UKdata && <UKHoliday UKdata={UKdata.message} />}
+          {USdata && <USHoliday USdata={USdata.message} />}
+          {Ausdata && <AusHoliday Ausdata={Ausdata.message} />}
+        </div>
+      </div>
     </div>
   );
 }

@@ -37,6 +37,7 @@ const Nav = ({ user, setUser }) => {
   const signOut = () => {
     localStorage.removeItem("JWT");
     setUser(null);
+    closeMobileMenu();
   };
 
   return (
@@ -44,6 +45,7 @@ const Nav = ({ user, setUser }) => {
       <div className="navbar-container container">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
           <IoSchoolSharp className="navbar-icon" />
+          ELTforYOU
         </Link>
         <div className="menu-icon" onClick={handleClick}>
           {click ? <FaTimes /> : <FaBars />}
@@ -117,12 +119,7 @@ const Nav = ({ user, setUser }) => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  className="nav-links"
-                  onClick={closeMobileMenu}
-                  to="/"
-                  onClick={signOut}
-                >
+                <Link className="nav-links" to="/" onClick={signOut}>
                   <button>SIGN OUT</button>
                 </Link>
               </li>
