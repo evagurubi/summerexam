@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { IoSchoolSharp } from "react-icons/io5";
 import "./Nav.css";
 
 const Nav = ({ user, setUser }) => {
@@ -42,7 +43,7 @@ const Nav = ({ user, setUser }) => {
     <nav className="navbar">
       <div className="navbar-container container">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-          <h1>LOGO</h1>
+          <IoSchoolSharp className="navbar-icon" />
         </Link>
         <div className="menu-icon" onClick={handleClick}>
           {click ? <FaTimes /> : <FaBars />}

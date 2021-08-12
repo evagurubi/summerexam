@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "../../src/App.css";
 import Article from "./Article";
 
 const Articles = () => {

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../../src/App.css";
 
 const ArticleWithTask = ({ article }) => {
   const [warmerNeeded, setWarmerNeeded] = useState(false);

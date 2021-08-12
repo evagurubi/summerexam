@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "../../src/App.css";
 
 const Contributions = () => {
   const [formData, setFormData] = useState(null);
