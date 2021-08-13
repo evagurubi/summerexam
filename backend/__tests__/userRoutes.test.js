@@ -1,5 +1,5 @@
 require("dotenv").config({ path: ".env.test" });
-//const jwt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 const app = require("../server");
 const supertest = require("supertest");
 const request = supertest(app);
@@ -53,9 +53,97 @@ describe("Login route tests", () => {
     // console.log("response", response);
     const users = await User.find();
     //then
-    console.log(users);
+    // console.log(users);
     expect(response.status).toBe(200);
     expect(users.length).toEqual(1);
     expect(users[0].name).toBe("Éva Gurubi");
+  });
+});
+describe("User account GET requests", () => {
+  it("Should come back with 200 and with proper user data for correct auth token", async () => {
+    //given
+    const token = {
+      code: "Somebodywhowantstologin",
+    };
+    await request.post("/api/login").send(token);
+    const users = await User.find();
+    //when
+    const evagurubi = { id: "117490664349062974708" };
+    const myToken = jwt.sign(evagurubi, process.env.TOKEN_SECRET);
+    const response = await request
+      .get("/api/account")
+      .set("auth-token", myToken);
+
+    //then
+
+    expect(response.status).toBe(200);
+    expect(users.length).toEqual(1);
+    expect(users[0].name).toBe("Éva Gurubi");
+    expect(response.body.email).toBe("evagurubi@gmail.com");
+  });
+
+  it("Should come back with empty array for wrong auth token", async () => {
+    const token = {
+      code: "Somebodywhowantstologin",
+    };
+    await request.post("/api/login").send(token);
+    const users = await User.find();
+    //when
+    const evagurubi = { id: "somebodymanipulatedwithtoken" };
+    const myToken = jwt.sign(evagurubi, process.env.TOKEN_SECRET);
+    const response = await request
+      .get("/api/account")
+      .set("auth-token", myToken);
+
+    //then
+
+    expect(response.status).toBe(200);
+    expect(users.length).toEqual(1);
+    expect(users[0].name).toBe("Éva Gurubi");
+    expect(response.body.email).toBe(undefined);
+  });
+});
+
+describe("User account DELETE requests", () => {
+  it("Should come back with 204 and result in empty database if proper id is sent.", async () => {
+    //given
+    const token = {
+      code: "Somebodywhowantstologin",
+    };
+    await request.post("/api/login").send(token);
+
+    //when
+    const evagurubi = { id: "117490664349062974708" };
+    const myToken = jwt.sign(evagurubi, process.env.TOKEN_SECRET);
+    const response = await request
+      .delete("/api/account")
+      .set("auth-token", myToken);
+
+    const users = await User.find();
+    //then
+    // console.log(response.body);
+    expect(response.status).toBe(204);
+    expect(users.length).toEqual(0);
+    expect(response.body).toEqual({});
+  });
+
+  it("Shouldn't delete user from database if id is not correct.", async () => {
+    //given
+    const token = {
+      code: "Somebodywhowantstologin",
+    };
+    await request.post("/api/login").send(token);
+
+    //when
+    const evagurubi = { id: "somebodymanipulatedwithtoken" };
+    const myToken = jwt.sign(evagurubi, process.env.TOKEN_SECRET);
+    await request.delete("/api/account").set("auth-token", myToken);
+
+    const users = await User.find();
+    //then
+    //console.log("RB", response.body);
+    //expect(response.status).toBe(204);
+    expect(users.length).toEqual(1);
+    //expect(response.body).toEqual({});
   });
 });

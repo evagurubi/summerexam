@@ -59,7 +59,7 @@ exports.listarticlepages = (perPage, page) => {
 
 exports.createArticle = async (articleBody, id) => {
   const article = new Article({ ...articleBody, userId: id });
-  //  console.log(article);
+
   return article.save();
 };
 

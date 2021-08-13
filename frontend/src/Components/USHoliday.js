@@ -3,8 +3,8 @@ import React from "react";
 function USHoliday({ USdata }) {
   let holidayType = USdata.type.toLowerCase().split(" ");
   if (holidayType[holidayType.length - 1] !== "holiday")
-    holidayType = holidayType + " holiday";
-  else holidayType = USdata.type.toLowerCase();
+    holidayType = holidayType.join(" ") + " holiday";
+  else holidayType = USdata.type.join(" ").toLowerCase();
   console.log(holidayType);
   return (
     <div>

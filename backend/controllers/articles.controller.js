@@ -37,7 +37,7 @@ exports.listall = (req, res) => {
 
 exports.insert = (req, res) => {
   const decoded = jwt_decode(req.header("auth-token"));
-  //console.log(decoded);
+
   Article.createArticle(req.body, decoded.id).then((result) =>
     res.status(201).send("Request received.")
   );
@@ -45,7 +45,7 @@ exports.insert = (req, res) => {
 
 exports.listown = (req, res) => {
   const decoded = jwt_decode(req.header("auth-token"));
-  console.log(decoded);
+  //console.log(decoded);
   if (decoded.isAdmin === true)
     Article.list().then((result) => {
       res.status(200).send(result);

@@ -31,7 +31,8 @@ function OwnAccount({ setUser }) {
 
     fetch(`/api/account`, options)
       .then((response) => response.text())
-      .then(() => {
+      .then((res) => {
+        console.log(res);
         localStorage.removeItem("JWT");
         setUser(null);
         window.location.href = "/";

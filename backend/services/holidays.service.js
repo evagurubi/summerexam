@@ -8,7 +8,6 @@ exports.createUKholiday = async (req) => {
   let month = req.query.month;
   let day = req.query.day;
   let newdate = day + "/" + month;
-  console.log(newdate);
 
   let existingUKHoliday = await UKholiday.findOne({ date: newdate });
 
@@ -42,7 +41,6 @@ exports.createUSholiday = async (req) => {
   let month = req.query.month;
   let day = req.query.day;
   let newdate = day + "/" + month;
-  console.log(newdate);
 
   let existingUSHoliday = await USholiday.findOne({ date: newdate });
 
@@ -76,7 +74,6 @@ exports.createAusholiday = async (req) => {
   let month = req.query.month;
   let day = req.query.day;
   let newdate = day + "/" + month;
-  console.log(newdate);
 
   let existingAusHoliday = await Ausholiday.findOne({ date: newdate });
 
