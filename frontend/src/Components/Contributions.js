@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./Contribution.css";
 
 const Contributions = () => {
   const [formData, setFormData] = useState(null);
@@ -50,8 +51,9 @@ const Contributions = () => {
 
   return (
     <div className="contributionbox">
-      <form onSubmit={(e) => e.preventDefault()}>
-        <input
+      <form className="form" onSubmit={(e) => e.preventDefault()}>
+        <textarea
+          className="textarea"
           type="text"
           id="title"
           name="title"
@@ -59,7 +61,8 @@ const Contributions = () => {
           onChange={(e) => setTitleData(e.target.value)}
           value={titleData}
         />
-        <input
+        <textarea
+          className="textarea"
           type="text"
           id="keywords"
           name="keywords"
@@ -67,7 +70,8 @@ const Contributions = () => {
           onChange={(e) => setKeywordsData(e.target.value)}
           value={keywordsData}
         />
-        <input
+        <textarea
+          className="textarea"
           type="text"
           id="warmer"
           name="warmer"
@@ -75,7 +79,8 @@ const Contributions = () => {
           onChange={(e) => setWarmerData(e.target.value)}
           value={warmerData}
         />
-        <input
+        <textarea
+          className="textarea"
           type="text"
           id="content"
           name="content"
@@ -83,7 +88,8 @@ const Contributions = () => {
           onChange={(e) => setContentData(e.target.value)}
           value={contentData}
         />
-        <input
+        <textarea
+          className="textarea"
           type="text"
           id="photoURL"
           name="photoURL"
@@ -91,7 +97,8 @@ const Contributions = () => {
           onChange={(e) => setPhotoURLData(e.target.value)}
           value={photoURLData}
         />
-        <input
+        <textarea
+          className="textarea"
           type="text"
           id="originalURL"
           name="originalURL"

@@ -8,8 +8,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-height: 80px;
-  max-height: 80px;
+  height: 15vh;
+  width: 100%;
   background-color: #636e6c;
   position: -webkit-sticky;
   position: sticky;
@@ -24,14 +24,14 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 80px;
+  height: 15vh;
   background-color: #636e6c;
 }
 
 .container {
   z-index: 1;
   width: 100%;
-  max-width: 1300px;
+  max-width: 1500px;
   margin-right: auto;
   margin-left: auto;
   padding-right: 50px;

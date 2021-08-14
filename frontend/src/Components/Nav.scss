@@ -2,8 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80px;
-  max-height: 80px;
+  height: 15vh;
+  width: 100%;
   background-color: rgb(99, 110, 108);
   position: sticky;
   top: 0;
@@ -13,14 +13,14 @@
 .navbar-container {
   display: flex;
   justify-content: space-between;
-  height: 80px;
+  height: 15vh;
   background-color: rgb(99, 110, 108);
 }
 
 .container {
   z-index: 1;
   width: 100%;
-  max-width: 1300px;
+  max-width: 1500px;
   margin-right: auto;
   margin-left: auto;
   padding-right: 50px;

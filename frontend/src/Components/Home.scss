@@ -2,8 +2,8 @@ $dark1: rgb(99, 110, 108);
 
 .homecontainer {
   position: relative;
-  height: 100vh;
-  min-height: 800px;
+  height: 85vh;
+
   margin: 0 auto;
 }
 
@@ -22,7 +22,7 @@ $dark1: rgb(99, 110, 108);
   width: 100%;
   height: 100%;
   background: rgba($dark1, 0.3);
-  padding-top: 80px;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,5 +38,10 @@ $dark1: rgb(99, 110, 108);
     display: flex;
     flex-direction: column;
     text-transform: uppercase;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .intro {
+    margin-top: 20vh;
   }
 }
