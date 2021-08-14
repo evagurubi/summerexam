@@ -41,7 +41,13 @@ $dark1: rgb(99, 110, 108);
   }
 }
 @media screen and (max-width: 1000px) {
-  .intro {
-    margin-top: 20vh;
+  .introcontent {
+    margin: 0 80px;
+    .h1font {
+      font-size: 1.2rem;
+    }
+    .h4font {
+      font-size: 0.6rem;
+    }
   }
 }

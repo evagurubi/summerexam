@@ -1,4 +1,5 @@
 $dark1: rgb(99, 110, 108);
+$dark2: rgb(145, 153, 152);
 $lighter1: rgb(217, 224, 223);
 
 .articles {
@@ -10,7 +11,7 @@ $lighter1: rgb(217, 224, 223);
 
 .articlescontent {
   width: 100%;
-  padding: 100px 0;
+  padding: 20px 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,12 +19,50 @@ $lighter1: rgb(217, 224, 223);
 }
 
 .articleitems {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: max-content;
+  padding: 10px;
 }
 .article {
-  margin: 50px;
+  margin: 10px;
+  background-color: $dark2;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+.textarea {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.content {
+  margin-top: 20px;
+  width: 100%;
+  height: 30%;
+}
+
+input[id="submitchange"] {
+  margin-top: 20px;
+  width: 100%;
+  height: 45px;
+}
+
+#deletebutton {
+  margin: 20px 0;
+  width: 80%;
+  height: 30px;
 }
 
 @media (max-width: 1200px) {
@@ -41,5 +80,9 @@ $lighter1: rgb(217, 224, 223);
   }
   .article {
     margin: 20px;
+  }
+
+  .textarea {
+    margin-top: 20px;
   }
 }

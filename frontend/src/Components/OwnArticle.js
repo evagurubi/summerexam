@@ -58,23 +58,22 @@ function OwnArticle({ ownTask, fetchOwnData }) {
   }, [formData]);
 
   return (
-    <div className="ownArticleDiv">
-      <p>{ownTask._id}</p>
-      <form>
+    <div className="article">
+      <form className="form">
         <textarea
-          className="title"
+          className="textarea"
           value={titleData}
           onChange={(e) => setTitleData(e.target.value)}
         />{" "}
         <br />
         <textarea
-          className="keywords"
+          className="textarea"
           value={keywordsData}
           onChange={(e) => setKeywordsData(e.target.value)}
         />
         <br />
         <textarea
-          className="warmer"
+          className="textarea"
           value={warmerData}
           onChange={(e) => setWarmerData(e.target.value)}
         />
@@ -86,23 +85,26 @@ function OwnArticle({ ownTask, fetchOwnData }) {
         />
         <br />
         <textarea
-          className="photoURL"
+          className="textarea"
           value={photoURLData}
           onChange={(e) => setPhotoURLData(e.target.value)}
         />
         <br />
         <textarea
-          className="originalURL"
+          className="textarea"
           value={originalURLData}
           onChange={(e) => setOriginalURLData(e.target.value)}
         />
         <input
+          id="submitchange"
           type="submit"
           value="Submit the changes"
           onClick={(e) => handlePatch(e)}
-        ></input>
+        />
       </form>
-      <button onClick={handleDelete}>Delete activity</button>
+      <button id="deletebutton" onClick={handleDelete}>
+        Delete activity
+      </button>
     </div>
   );
 }

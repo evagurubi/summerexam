@@ -15,6 +15,7 @@
   position: sticky;
   top: 0;
   z-index: 999;
+  border-bottom: 8px solid #d9e0df;
 }
 
 .navbar-container {
@@ -128,7 +129,17 @@
     transition: all 0.5s ease;
   }
   .nav-menu.active {
-    background: #fff;
+    background: #d9e0df;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     left: 0;
     opacity: 1;
     -webkit-transition: all 0.5s ease;
@@ -146,8 +157,8 @@
     color: #fff;
     -webkit-transform: scale(1.2);
             transform: scale(1.2);
-    -webkit-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+    -webkit-transition: all 0.1s ease;
+    transition: all 0.1s ease;
   }
   .nav-item:hover {
     border: none;

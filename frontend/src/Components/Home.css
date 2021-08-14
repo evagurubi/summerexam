@@ -52,8 +52,14 @@
 }
 
 @media screen and (max-width: 1000px) {
-  .intro {
-    margin-top: 20vh;
+  .introcontent {
+    margin: 0 80px;
+  }
+  .introcontent .h1font {
+    font-size: 1.2rem;
+  }
+  .introcontent .h4font {
+    font-size: 0.6rem;
   }
 }
 /*# sourceMappingURL=Home.css.map */

@@ -80,9 +80,8 @@ const Contributions = () => {
           value={warmerData}
         />
         <textarea
-          className="textarea"
+          className="content"
           type="text"
-          id="content"
           name="content"
           placeholder="CONTENT"
           onChange={(e) => setContentData(e.target.value)}
@@ -106,7 +105,12 @@ const Contributions = () => {
           onChange={(e) => setOriginalURLData(e.target.value)}
           value={originalURLData}
         />
-        <input type="submit" value="Submit" onClick={(e) => handleClick(e)} />
+        <input
+          id="submitarticle"
+          type="submit"
+          value="Submit"
+          onClick={(e) => handleClick(e)}
+        />
       </form>
     </div>
   );
