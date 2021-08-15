@@ -28,11 +28,11 @@ const ArticleWithTask = ({ article }) => {
       {warmerNeeded && articleNeeded && (
         <div>
           <p>{article.content}</p>
-          <a href={article.originalURL} target="_blank">
+          <a className="link" href={article.originalURL} target="_blank">
             LINK TO THE ORIGINAL ARTICLE
           </a>
           <br />
-          <a href={article.photoURL} target="_blank">
+          <a className="link" href={article.photoURL} target="_blank">
             LINK TO A PICTURE FOR EXTRA IDEAS
           </a>
         </div>

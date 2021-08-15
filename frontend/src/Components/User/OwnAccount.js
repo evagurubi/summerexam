@@ -53,7 +53,9 @@ function OwnAccount({ setUser }) {
           <div className="accountcontent">
             <p>Name: {myData.name}</p>
             <p>email: {myData.email} </p>
-            <button onClick={deleteAccount}>Delete your account</button>
+            <button id="accountbutton" onClick={deleteAccount}>
+              Delete your account
+            </button>
           </div>
         )}
       </div>

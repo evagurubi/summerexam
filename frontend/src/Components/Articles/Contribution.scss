@@ -23,6 +23,11 @@ input[id="submitarticle"] {
   margin-top: 20px;
   width: 30%;
   height: 40px;
+  @include button($dark1, $lighter1);
+}
+
+input[id="submitarticle"]:hover {
+  @include hoverbutton($dark1);
 }
 
 @media (max-width: 800px) {

@@ -39,6 +39,22 @@ input[id="submitarticle"] {
   margin-top: 20px;
   width: 30%;
   height: 40px;
+  background-color: #636e6c;
+  color: #d9e0df;
+  border: solid 2px #d9e0df;
+  border-radius: 7px;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+input[id="submitarticle"]:hover {
+  border: solid 2px #636e6c;
+  color: #636e6c;
+  background-color: transparent;
 }
 
 @media (max-width: 800px) {

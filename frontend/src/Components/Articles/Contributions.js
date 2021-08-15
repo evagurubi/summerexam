@@ -108,7 +108,7 @@ const Contributions = () => {
         <input
           id="submitarticle"
           type="submit"
-          value="Submit"
+          value="SUBMIT"
           onClick={(e) => handleClick(e)}
         />
       </form>

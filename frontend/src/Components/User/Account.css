@@ -53,7 +53,31 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   text-transform: uppercase;
+  line-height: 200%;
+}
+
+.account .accountcontent #accountbutton {
+  margin-top: 20px;
+  background-color: #919998;
+  color: #d9e0df;
+  border: solid 2px #d9e0df;
+  border-radius: 7px;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.account .accountcontent #accountbutton:hover {
+  border: solid 2px #636e6c;
+  color: #636e6c;
+  background-color: transparent;
 }
 
 @media screen and (max-width: 1000px) {
@@ -61,8 +85,7 @@
     -webkit-box-pack: left;
         -ms-flex-pack: left;
             justify-content: left;
-    height: 80%;
-    margin: 0 80px;
+    margin: 0 90px;
     /* h4 {
         font-size: 1.2rem;
       }

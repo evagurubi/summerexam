@@ -10,7 +10,7 @@
   position: sticky;
   top: 0;
   z-index: 999;
-  border-bottom: 8px solid rgb(217, 224, 223);
+  border-bottom: 8px solid $lighter1;
 }
 
 .navbar-container {
@@ -21,8 +21,8 @@
   max-width: 1500px;
   margin-right: auto;
   margin-left: auto;
-  padding-right: 50px;
-  padding-left: 50px;
+  padding-right: 30px;
+  padding-left: 20px;
   background-color: $dark1;
 }
 
@@ -56,7 +56,7 @@
   border-bottom: 2px solid transparent;
 }
 
-.nav-item:hover {
+.nav-item:not(:last-child):hover {
   border-bottom: 2px solid #fff;
 }
 
@@ -77,15 +77,18 @@
   display: none;
 }
 .navbarbutton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include button($lighter1, $dark1);
+}
+
+.navbarbutton:hover {
+  @include hoverbutton($lighter1);
 }
 
 @media screen and (max-width: 1000px) {
   .navbar-container {
     padding-left: 10px;
     padding-right: 10px;
+    margin-left: 5px;
   }
   .nav-links {
     padding: 0.3rem 0.3rem;

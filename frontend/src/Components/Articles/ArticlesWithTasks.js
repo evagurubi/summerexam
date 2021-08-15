@@ -47,13 +47,16 @@ const ArticlesWithTasks = () => {
 
   return (
     <div className="articles">
-      <button onClick={handleSearchBy}>Search by</button>
+      <button id="searchbybutton" onClick={handleSearchBy}>
+        SEARCH BY
+      </button>
 
       <input
+        id="searchbyinput"
         placeholder={keywordSearch ? "KEYWORD" : "CONTENT"}
         onInput={searchHandler}
         value={inputText}
-      ></input>
+      />
       {articleData &&
         articleData.map((el, i) => <ArticleWithTask key={i} article={el} />)}
     </div>

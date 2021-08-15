@@ -38,14 +38,23 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
     text-transform: uppercase;
+    line-height: 200%;
+    #accountbutton {
+      margin-top: 20px;
+      @include button($dark2, $lighter1);
+    }
+    #accountbutton:hover {
+      @include hoverbutton($dark1);
+    }
   }
 }
 @media screen and (max-width: 1000px) {
   .accountcontent {
     justify-content: left;
-    height: 80%;
-    margin: 0 80px;
+    // height: 60%;
+    margin: 0 90px;
     /* h4 {
         font-size: 1.2rem;
       }

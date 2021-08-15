@@ -8,7 +8,7 @@ exports.list = (req, res) => {
     page = Number.isInteger(req.query.page) ? req.query.page : 0;
   }
 
-  Article.listarticlepages(5, page).then((result) => {
+  Article.listarticlepages(6, page).then((result) => {
     let returnArray = [];
     let myItem = {};
     result.map((item) => {
