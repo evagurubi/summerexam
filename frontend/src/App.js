@@ -3,13 +3,13 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Home from "./Components/Home";
 import Nav from "./Components/Nav";
-import Articles from "./Components/Articles";
-import Holidays from "./Components/Holidays";
-import ArticlesWithTasks from "./Components/ArticlesWithTasks";
-import OwnArticles from "./Components/OwnArticles";
-import Contributions from "./Components/Contributions";
-import OwnAccount from "./Components/OwnAccount";
-import Login from "./Components/Login";
+import Articles from "./Components/Articles/Articles";
+import Holidays from "./Components/Holidays/Holidays";
+import ArticlesWithTasks from "./Components/Articles/ArticlesWithTasks";
+import OwnArticles from "./Components/Articles/OwnArticles";
+import Contributions from "./Components/Articles/Contributions";
+import OwnAccount from "./Components/User/OwnAccount";
+import Login from "./Components/User/Login";
 import jwt_decode from "jwt-decode";
 
 function App() {

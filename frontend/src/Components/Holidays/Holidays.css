@@ -35,7 +35,7 @@
 
 .holidays .holidayscontent {
   margin: 0 1.5rem;
-  height: 40%;
+  min-height: 40%;
   background: rgba(99, 110, 108, 0.7);
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
@@ -54,5 +54,21 @@
       -ms-flex-pack: center;
           justify-content: center;
   text-transform: uppercase;
+}
+
+@media screen and (max-width: 1000px) {
+  .holidayscontent {
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+    height: 80%;
+    margin: 0 80px;
+  }
+  .holidayscontent h4 {
+    font-size: 1.2rem;
+  }
+  .holidayscontent p {
+    font-size: 0.8rem;
+  }
 }
 /*# sourceMappingURL=Holidays.css.map */

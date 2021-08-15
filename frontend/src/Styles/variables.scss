@@ -1,0 +1,11 @@
+$dark1: rgb(99, 110, 108);
+//$lighter1: red;
+$dark2: rgb(145, 153, 152);
+$lighter1: rgb(217, 224, 223);
+
+@mixin form($width) {
+  width: $width;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import UKHoliday from "./UKHoliday";
 import USHoliday from "./USHoliday";
 import AusHoliday from "./AusHoliday";
-import New_York from "../Images/New_york_times_square.jpg";
+import New_York from "../../Images/New_york_times_square.jpg";
 import "./Holidays.css";
 
 function Holidays() {

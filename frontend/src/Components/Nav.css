@@ -25,11 +25,6 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 15vh;
-  background-color: #636e6c;
-}
-
-.container {
   z-index: 1;
   width: 100%;
   max-width: 1500px;
@@ -37,6 +32,7 @@
   margin-left: auto;
   padding-right: 50px;
   padding-left: 50px;
+  background-color: #636e6c;
 }
 
 .navbar-logo {
@@ -78,7 +74,6 @@
 
 .nav-item {
   color: #fff;
-  height: 80px;
   border-bottom: 2px solid transparent;
 }
 
@@ -107,10 +102,32 @@
   display: none;
 }
 
+.navbarbutton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 @media screen and (max-width: 1000px) {
-  .NavbarItems {
-    position: relative;
+  .navbar-container {
+    padding-left: 10px;
+    padding-right: 10px;
   }
+  .nav-links {
+    padding: 0.3rem 0.3rem;
+  }
+  nav-menu {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 800px) {
   .nav-menu {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -119,6 +136,9 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 100%;
     height: 90vh;
     position: absolute;
@@ -140,6 +160,7 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    padding: 0;
     left: 0;
     opacity: 1;
     -webkit-transition: all 0.5s ease;
@@ -150,7 +171,16 @@
     text-align: center;
     padding: 2rem;
     width: 100%;
-    display: table;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     color: #636e6c;
   }
   .nav-links:hover {
@@ -173,6 +203,7 @@
     left: 0;
     -webkit-transform: translate(25%, 50%);
             transform: translate(25%, 50%);
+    font-size: 1.7rem;
   }
   .menu-icon {
     color: #fff;
@@ -188,19 +219,6 @@
   .fa-times {
     color: #fff;
     font-size: 2rem;
-  }
-  .nav-btn {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: 100%;
-    height: 120px;
   }
 }
 /*# sourceMappingURL=Nav.css.map */

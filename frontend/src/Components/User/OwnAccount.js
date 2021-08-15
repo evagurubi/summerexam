@@ -1,5 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import Sydney from "../../Images/Sydney_australia.jpg";
+import "./Account.css";
 
 function OwnAccount({ setUser }) {
   const [myData, setMyData] = useState(null);
@@ -44,14 +46,17 @@ function OwnAccount({ setUser }) {
   }, []);
 
   return (
-    <div>
-      {myData && (
-        <div>
-          <p>Name: {myData.name}</p>
-          <p>email: {myData.email} </p>
-          <button onClick={deleteAccount}>Delete your account</button>
-        </div>
-      )}
+    <div className="accountcontainer">
+      <img src={Sydney} id="sydneyimage" />
+      <div className="account">
+        {myData && (
+          <div className="accountcontent">
+            <p>Name: {myData.name}</p>
+            <p>email: {myData.email} </p>
+            <button onClick={deleteAccount}>Delete your account</button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
