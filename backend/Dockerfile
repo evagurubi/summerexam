@@ -1,8 +1,8 @@
 FROM node:12
-WORKDIR /app
-COPY package.json .
+WORKDIR /backend
+COPY package.json* .
 RUN npm install
 COPY . ./
-EXPOSE 8080
-CMD ["node", "index.js"]
+EXPOSE 5000
+CMD ["node", "start.js"]
 

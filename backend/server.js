@@ -17,4 +17,5 @@ app.use("/api", Route);
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 //err, req, res, next hibakezelő
+
 module.exports = app;
