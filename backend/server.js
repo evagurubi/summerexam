@@ -9,11 +9,12 @@ const swaggerDocument = YAML.load("./swagger.yaml");
 const Route = require("./routes/Route");
 
 //Middlewares
+app.use(cors());
 app.use(express.json());
 
 //Route Middleware
 app.use("/api", Route);
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.use(cors());
 
+//err, req, res, next hibakezelő
 module.exports = app;

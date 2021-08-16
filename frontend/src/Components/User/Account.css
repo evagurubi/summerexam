@@ -33,7 +33,7 @@
           justify-content: center;
 }
 
-.account .accountcontent {
+.accountcontent {
   margin: 0 1.5rem;
   min-height: 40%;
   background: rgba(217, 224, 223, 0.7);
@@ -60,7 +60,7 @@
   line-height: 200%;
 }
 
-.account .accountcontent #accountbutton {
+.accountcontent #accountbutton {
   margin-top: 20px;
   background-color: #919998;
   color: #d9e0df;
@@ -74,24 +74,22 @@
   cursor: pointer;
 }
 
-.account .accountcontent #accountbutton:hover {
+.accountcontent #accountbutton:hover {
   border: solid 2px #636e6c;
   color: #636e6c;
   background-color: transparent;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 600px) {
   .accountcontent {
-    -webkit-box-pack: left;
-        -ms-flex-pack: left;
-            justify-content: left;
-    margin: 0 90px;
-    /* h4 {
-        font-size: 1.2rem;
-      }
-      p {
-        font-size: 0.8rem;
-      }*/
+    margin: 0 0.5rem;
+    padding: 20px;
+  }
+  .accountcontent h4 {
+    font-size: 1.2rem;
+  }
+  .accountcontent p {
+    font-size: 0.8rem;
   }
 }
 /*# sourceMappingURL=Account.css.map */

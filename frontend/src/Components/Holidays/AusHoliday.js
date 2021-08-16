@@ -4,7 +4,7 @@ function AusHoliday({ Ausdata }) {
   let holidayType = Ausdata.type.toLowerCase().split(" ");
   console.log(holidayType);
   if (holidayType[holidayType.length - 1] !== "holiday")
-    holidayType = holidayType + " holiday";
+    holidayType = holidayType.join(" ") + " holiday";
   else holidayType = Ausdata.type.toLowerCase();
 
   return (

@@ -1,0 +1,33 @@
+version: "3"
+services:
+  frontend:
+    build: ./frontend
+    image: summerexam_frontend
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    networks:
+      - summerexam
+  summerexam_backend:
+    build: ./backend
+    image: summerexam_backend
+    ports:
+      - "5000:5000"
+    networks:
+      - summerexam
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:3.6.19-xenial
+    ports:
+      - "27017:27017"
+    networks:
+      - summerexam
+    volumes:
+      - mongo-data:/data/db
+networks:
+  summerexam:
+    driver: bridge
+volumes:
+  mongo-data:
+    driver: local
