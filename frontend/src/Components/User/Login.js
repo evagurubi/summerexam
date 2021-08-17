@@ -12,7 +12,7 @@ const Login = () => {
       body: JSON.stringify(token),
     };
 
-    fetch("/api/login", requestOptions)
+    fetch("/api/account/login", requestOptions)
       .then((response) => response.text())
       .then((data) => {
         localStorage.setItem("JWT", data);

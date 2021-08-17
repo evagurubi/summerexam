@@ -14,7 +14,7 @@ function OwnArticles() {
   };
 
   const fetchOwnData = () => {
-    fetch("/api/ownarticles", requestOptions)
+    fetch("/api/articles/own", requestOptions)
       .then((response) => response.json())
       .then((data) => {
         setOwnData(data);

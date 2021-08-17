@@ -33,7 +33,7 @@ function OwnArticle({ ownTask, fetchOwnData }) {
       },
     };
 
-    fetch(`/api/ownarticles/${ownTask._id}`, options)
+    fetch(`/api/articles/own/${ownTask._id}`, options)
       .then((response) => response.text())
       .then(() => {
         fetchOwnData();
@@ -50,7 +50,7 @@ function OwnArticle({ ownTask, fetchOwnData }) {
       body: JSON.stringify(formData),
     };
 
-    fetch(`/api/ownarticles/${ownTask._id}`, requestOptions)
+    fetch(`/api/articles/own/${ownTask._id}`, requestOptions)
       .then((response) => response.text())
       .then((data) => {
         console.log(data);
