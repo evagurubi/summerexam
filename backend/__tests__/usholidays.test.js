@@ -61,12 +61,12 @@ mock
 
 let spy = jest.spyOn(axios, "get");
 
-describe("Tests GET requests to /api/usholidays endpoint", () => {
+describe("Tests GET requests to /api/holidays/us endpoint", () => {
   it("Should return holiday and writes it in DB if it wasn't there before.", async () => {
     // given an empty db
     //when
     const response = await request.get(
-      "/api/usholidays?year=2021&month=8&day=13"
+      "/api/holidays/us?year=2021&month=8&day=13"
     );
 
     const usholidays = await USholiday.find();
@@ -81,11 +81,11 @@ describe("Tests GET requests to /api/usholidays endpoint", () => {
     // given an empty db
     //when
     const response = await request.get(
-      "/api/usholidays?year=2021&month=8&day=13"
+      "/api/holidays/us?year=2021&month=8&day=13"
     );
-    const res = await request.get("/api/usholidays?year=2021&month=8&day=13");
+    const res = await request.get("/api/holidays/us?year=2021&month=8&day=13");
 
-    const resp = await request.get("/api/usholidays?year=2021&month=1&day=1");
+    const resp = await request.get("/api/holidays/us?year=2021&month=1&day=1");
 
     const usholidays = await USholiday.find();
     //then

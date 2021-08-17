@@ -16,7 +16,7 @@ tags:
   - name: "holidays"
     description: Operations about holidays
 paths:
-  /login:
+  /account/login:
     post:
       tags:
         - "user"
@@ -115,7 +115,7 @@ paths:
       responses:
         "201":
           description: Created
-  /articleswithtasks:
+  /articles/withtasks:
     get:
       tags:
         - "articles"
@@ -148,7 +148,7 @@ paths:
                   $ref: "#/components/schemas/Article"
         "400":
           description: "Invalid status value"
-  /ownarticles:
+  /articles/own:
     get:
       tags:
         - "articles"
@@ -171,7 +171,7 @@ paths:
                   $ref: "#/components/schemas/Article"
         "400":
           description: "Invalid status value"
-  /ownarticles/{id}:
+  /articles/own/{id}:
     patch:
       tags:
         - "articles"
@@ -216,7 +216,7 @@ paths:
           description: "OK"
         "400":
           description: "Invalid status value"
-  /ukholidays:
+  /holidays/uk:
     get:
       tags:
         - "holidays"
@@ -246,7 +246,7 @@ paths:
                 $ref: "#/components/schemas/Holiday"
         "400":
           description: "Invalid status value"
-  /usholidays:
+  /holidays/us:
     get:
       tags:
         - "holidays"
@@ -276,7 +276,7 @@ paths:
                 $ref: "#/components/schemas/Holiday"
         "400":
           description: "Invalid status value"
-  /ausholidays:
+  /holidays/aus:
     get:
       tags:
         - "holidays"

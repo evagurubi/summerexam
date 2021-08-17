@@ -51,7 +51,7 @@ describe("Tests GET requests to /api/ausholidays endpoint", () => {
     // given an empty db
     //when
     const response = await request.get(
-      "/api/ausholidays?year=2021&month=8&day=13"
+      "/api/holidays/aus?year=2021&month=8&day=13"
     );
 
     const ausholidays = await Ausholiday.find();
@@ -67,11 +67,11 @@ describe("Tests GET requests to /api/ausholidays endpoint", () => {
     // given an empty db
     //when
     const response = await request.get(
-      "/api/ausholidays?year=2021&month=8&day=13"
+      "/api/holidays/aus?year=2021&month=8&day=13"
     );
-    const res = await request.get("/api/ausholidays?year=2021&month=8&day=13");
+    const res = await request.get("/api/holidays/aus?year=2021&month=8&day=13");
 
-    const resp = await request.get("/api/ausholidays?year=2021&month=1&day=1");
+    const resp = await request.get("/api/holidays/aus?year=2021&month=1&day=1");
 
     const ausholidays = await Ausholiday.find();
     //then

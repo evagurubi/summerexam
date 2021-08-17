@@ -19,7 +19,7 @@ afterAll(async () => {
   await db.closeDatabase();
 });
 
-describe("It tests get requests to the /api/ownarticles endpoint", () => {
+describe("It tests get requests to the /api/articles/own endpoint", () => {
   it("Should return empty array for GET request with proper auth-token but with no articles by user in DB", async () => {
     //given
     const someone = { id: "someone" };
@@ -57,7 +57,7 @@ describe("It tests get requests to the /api/ownarticles endpoint", () => {
 
     const articles = await Article.find();
     const response = await request
-      .get("/api/ownarticles")
+      .get("/api/articles/own")
       .set("auth-token", `${myToken2}`);
     // console.log("res", response.body);
     expect(articles.length).toEqual(2);
@@ -114,7 +114,7 @@ describe("It tests get requests to the /api/ownarticles endpoint", () => {
 
     const articles = await Article.find();
     const response = await request
-      .get("/api/ownarticles")
+      .get("/api/articles/own")
       .set("auth-token", `${myToken}`);
     // console.log("res", response.body);
     expect(articles.length).toEqual(3);
@@ -124,7 +124,7 @@ describe("It tests get requests to the /api/ownarticles endpoint", () => {
   });
 });
 
-describe("Tests PATCH and DELETE requests to /api/ownarticles endpoint", () => {
+describe("Tests PATCH and DELETE requests to /api/articles/own endpoint", () => {
   it("Should update article in DB if request sent with proper token", async () => {
     const someone = { id: "someone" };
     const myToken = jwt.sign(someone, process.env.TOKEN_SECRET);
@@ -155,7 +155,7 @@ describe("Tests PATCH and DELETE requests to /api/ownarticles endpoint", () => {
     const testID = articles[0]._id;
 
     const response = await request
-      .patch(`/api/ownarticles/${testID}`)
+      .patch(`/api/articles/own/${testID}`)
       .set("auth-token", `${myToken}`)
       .send(newArticle2);
 
@@ -188,7 +188,7 @@ describe("Tests PATCH and DELETE requests to /api/ownarticles endpoint", () => {
     const testID = articles[0]._id;
 
     const response = await request
-      .delete(`/api/ownarticles/${testID}`)
+      .delete(`/api/articles/own/${testID}`)
       .set("auth-token", `${myToken}`);
 
     const articleDB = await Article.find();

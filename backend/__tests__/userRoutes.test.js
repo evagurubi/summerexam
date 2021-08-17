@@ -13,6 +13,7 @@ beforeAll(async () => await db.connectToDatabase());
 
 afterEach(async () => {
   await db.clearDatabase();
+  await jest.clearAllMocks();
 });
 
 afterAll(async () => {
@@ -30,14 +31,14 @@ mock.onPost("https://oauth2.googleapis.com/token").reply(200, {
     "eyJhbGciOiJSUzI1NiIsImtpZCI6IjBmY2MwMTRmMjI5MzRlNDc0ODBkYWYxMDdhMzQwYzIyYmQyNjJiNmMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI1MTgxNDE2NDcwMTctcnBzdm5iZjg5aDBzbXNyZWxubmRocW4wb29qMTFvcTYuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI1MTgxNDE2NDcwMTctcnBzdm5iZjg5aDBzbXNyZWxubmRocW4wb29qMTFvcTYuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTc0OTA2NjQzNDkwNjI5NzQ3MDgiLCJlbWFpbCI6ImV2YWd1cnViaUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6IkJ6TlM5RUZBYWdCZWdJSUJLS05mdHciLCJuYW1lIjoiw4l2YSBHdXJ1YmkiLCJwaWN0dXJlIjoiaHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EtL0FPaDE0R2prME5udU5iMWhDVjR1enEwY2h2eHdsTkZORnhRQlItZ2lmc2NXV0E9czk2LWMiLCJnaXZlbl9uYW1lIjoiw4l2YSIsImZhbWlseV9uYW1lIjoiR3VydWJpIiwibG9jYWxlIjoiaHUiLCJpYXQiOjE2Mjg1Mjk1MzUsImV4cCI6MTYyODUzMzEzNX0.Xi9WqPRuAVveIZirjwuKyecA4USE-Dduv56-JJXSzZmGnJAWQIaK7iZSGvfbogxJBwhPul7FYWAEgRu_AIWpi4YRy1qCcNCROjYfp1mxF7WZehOrcbKHMLfmOijzD4kgHtE1kBB3guKctmbEgJ4ml1nBZwjixm97LRYkRjldM4lbCngPBnCxLjn_70hq5QGWS2vMFt2Po7bnoCIXXlgR-lZuK8F1yahWF_1_eynNww3Dc_vhE1glsOpi7cEfDf6v2ct9WYKT1haw1KZj9th04VSUVseErSQBesTYZoUL74irXiTJ117eXGTMZL5hlEGkyhnm4jGXQF6p33Ju0k95iw",
 });
 
+global.console.log = jest.fn();
+
 describe("It tests if mock adapter works", () => {
   it("Should come back with 200 ", async () => {
     //given
     const result = await axios.post("https://oauth2.googleapis.com/token", {});
 
     //then
-    // console.log("result:", result);
-
     expect(result.status).toBe(200);
   });
 });
@@ -48,24 +49,59 @@ describe("Login route tests", () => {
     const token = {
       code: "Somebodywhowantstologin",
     };
+
     //when
-    const response = await request.post("/api/login").send(token);
-    // console.log("response", response);
+    const response = await request.post("/api/account/login").send(token);
     const users = await User.find();
     //then
-    // console.log(users);
+    expect(global.console.log).toHaveBeenCalledWith("Email sent successfully");
     expect(response.status).toBe(200);
     expect(users.length).toEqual(1);
     expect(users[0].name).toBe("Éva Gurubi");
   });
+
+  it("Should log in for two requests but put user in DB only once if second is not new user", async () => {
+    //given
+    const token = {
+      code: "Somebodywhowantstologin",
+    };
+
+    //when
+    const response1 = await request.post("/api/account/login").send(token);
+    const response2 = await request.post("/api/account/login").send(token);
+    const users = await User.find();
+
+    //then
+    expect(response1.status).toBe(200);
+    expect(response2.status).toBe(200);
+    expect(users.length).toEqual(1);
+    expect(users[0].name).toBe("Éva Gurubi");
+  });
+
+  it("Should only send email to new users", async () => {
+    //given
+    const token = {
+      code: "Somebodywhowantstologin",
+    };
+
+    //when
+    const response1 = await request.post("/api/account/login").send(token);
+    const response2 = await request.post("/api/account/login").send(token);
+    //then
+    expect(response1.status).toBe(200);
+    expect(response2.status).toBe(200);
+    expect(global.console.log).toHaveBeenCalledTimes(1);
+    expect(global.console.log).toHaveBeenCalledWith("Email sent successfully");
+  });
 });
+
 describe("User account GET requests", () => {
   it("Should come back with 200 and with proper user data for correct auth token", async () => {
     //given
     const token = {
       code: "Somebodywhowantstologin",
     };
-    await request.post("/api/login").send(token);
+    await request.post("/api/account/login").send(token);
     const users = await User.find();
     //when
     const evagurubi = { id: "117490664349062974708" };
@@ -75,7 +111,6 @@ describe("User account GET requests", () => {
       .set("auth-token", myToken);
 
     //then
-
     expect(response.status).toBe(200);
     expect(users.length).toEqual(1);
     expect(users[0].name).toBe("Éva Gurubi");
@@ -86,7 +121,7 @@ describe("User account GET requests", () => {
     const token = {
       code: "Somebodywhowantstologin",
     };
-    await request.post("/api/login").send(token);
+    await request.post("/api/account/login").send(token);
     const users = await User.find();
     //when
     const evagurubi = { id: "somebodymanipulatedwithtoken" };
@@ -96,7 +131,6 @@ describe("User account GET requests", () => {
       .set("auth-token", myToken);
 
     //then
-
     expect(response.status).toBe(200);
     expect(users.length).toEqual(1);
     expect(users[0].name).toBe("Éva Gurubi");
@@ -110,7 +144,7 @@ describe("User account DELETE requests", () => {
     const token = {
       code: "Somebodywhowantstologin",
     };
-    await request.post("/api/login").send(token);
+    await request.post("/api/account/login").send(token);
 
     //when
     const evagurubi = { id: "117490664349062974708" };
@@ -121,7 +155,6 @@ describe("User account DELETE requests", () => {
 
     const users = await User.find();
     //then
-    // console.log(response.body);
     expect(response.status).toBe(204);
     expect(users.length).toEqual(0);
     expect(response.body).toEqual({});
@@ -132,7 +165,7 @@ describe("User account DELETE requests", () => {
     const token = {
       code: "Somebodywhowantstologin",
     };
-    await request.post("/api/login").send(token);
+    await request.post("/api/account/login").send(token);
 
     //when
     const evagurubi = { id: "somebodymanipulatedwithtoken" };
@@ -141,9 +174,6 @@ describe("User account DELETE requests", () => {
 
     const users = await User.find();
     //then
-    //console.log("RB", response.body);
-    //expect(response.status).toBe(204);
     expect(users.length).toEqual(1);
-    //expect(response.body).toEqual({});
   });
 });

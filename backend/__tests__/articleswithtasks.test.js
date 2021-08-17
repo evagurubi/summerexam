@@ -19,7 +19,7 @@ afterAll(async () => {
 describe("Tests responses with no authorization", () => {
   it("Should send 401 when there's no authorization", async () => {
     //when
-    const response = await request.get("/api/articleswithtasks");
+    const response = await request.get("/api/articles/withtasks");
 
     //then
     expect(response.text).toBe("Access denied");
@@ -36,7 +36,7 @@ describe("Tests responses with authorization", () => {
     //when
     // console.log("My secret:", process.env.TOKEN_SECRET);
     const response = await request
-      .get("/api/articleswithtasks")
+      .get("/api/articles/withtasks")
       .set("auth-token", `${myToken}`);
 
     //then
@@ -65,7 +65,7 @@ describe("Tests responses with authorization", () => {
     const articles = await Article.find();
 
     const response = await request
-      .get("/api/articleswithtasks")
+      .get("/api/articles/withtasks")
       .set("auth-token", `${myToken}`);
 
     //then

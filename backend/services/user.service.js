@@ -24,13 +24,23 @@ exports.createUser = async (decoded, adminRights) => {
       `,
     };
 
-    transporter.sendMail(mailOptions, function (err, data) {
+    /* transporter.sendMail(mailOptions, function (err, data) {
       if (err) {
         console.log("Error " + err);
       } else {
         console.log("Email sent successfully");
       }
-    });
+    });*/
+
+    try {
+      //send
+
+      const result = await transporter.sendMail(mailOptions);
+
+      console.log("Email sent successfully");
+    } catch (e) {
+      console.error(e);
+    }
 
     const user = new User({
       email: decoded.email,
