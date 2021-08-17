@@ -70,7 +70,7 @@ function Holidays() {
     fetchUKData();
     setTimeout(() => {
       fetchUSData();
-    }, 2000);
+    }, 3000);
     setTimeout(() => {
       fetchAusData();
     }, 4000);

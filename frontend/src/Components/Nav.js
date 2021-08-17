@@ -6,26 +6,9 @@ import "./Nav.css";
 
 const Nav = ({ user, setUser }) => {
   const [click, setClick] = useState(false);
-  // const [button, setButton] = useState(true);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
-
-  /* const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
-  };
-
-   useEffect(() => {
-    showButton();
-    window.addEventListener("resize", showButton);
-    return function cleanup() {
-      window.removeEventListener("resize", showButton);
-    };
-  }, []);*/
 
   const loginAuth = () => {
     window.location.href = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=518141647017-rpsvnbf89h0smsrelnndhqn0ooj11oq6.apps.googleusercontent.com&scope=openid%20email%20profile&redirect_uri=http%3A//localhost:3000/login&prompt=select_account`;
