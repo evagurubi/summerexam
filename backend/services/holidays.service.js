@@ -73,7 +73,7 @@ exports.createAusholiday = async (req) => {
   let year = req.query.year;
   let month = req.query.month;
   let day = req.query.day;
-  let newdate = day + "/" + month;
+  let newdate = day + "/" + month + "/" + year;
 
   let existingAusHoliday = await Ausholiday.findOne({ date: newdate });
 

@@ -7,9 +7,11 @@ const Home = () => {
       <img src={London_scene} id="image" />
       <div className="intro">
         <div className="introcontent">
-          <h1 className="h1font">
-            Newspaper And Magazine Articles for Your English Class
-          </h1>
+          <div className="h1font">
+            <h1 className="h1">
+              Newspaper And Magazine Articles for Your English Class
+            </h1>
+          </div>
           <h4 className="h4font">
             " ‘One of the words that has been creeping into English teaching in
             the past few years is 'authentic'. It has a kind of magic ring to

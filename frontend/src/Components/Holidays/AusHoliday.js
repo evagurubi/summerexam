@@ -10,11 +10,11 @@ function AusHoliday({ Ausdata }) {
   return (
     <div>
       {Ausdata.name !== "" ? (
-        <p>
+        <h4 className="ausush4">
           It is {Ausdata.name} in Australia, which is a/an {holidayType}.{" "}
-        </p>
+        </h4>
       ) : (
-        <p>It is not a holiday in Australia.</p>
+        <h4>It is not a holiday in Australia.</h4>
       )}
     </div>
   );

@@ -10,12 +10,12 @@ function USHoliday({ USdata }) {
   return (
     <div>
       {USdata.name !== "" ? (
-        <p>
+        <h4 className="ausush4">
           It is {USdata.name} in the United States of America, which is a/an{" "}
           {holidayType}.
-        </p>
+        </h4>
       ) : (
-        <p>It is not a holiday in the United States of America.</p>
+        <h4>It is not a holiday in the United States of America.</h4>
       )}
     </div>
   );

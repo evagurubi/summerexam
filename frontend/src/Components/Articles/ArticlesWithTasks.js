@@ -5,7 +5,7 @@ const ArticlesWithTasks = () => {
   const [articleData, setArticleData] = useState(null);
   const [keywordSearch, setKeywordSearch] = useState(true);
   const [inputText, setInputText] = useState("");
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(`keyword=${inputText}`);
 
   const handleSearchBy = () => {
     setInputText("");
@@ -13,7 +13,7 @@ const ArticlesWithTasks = () => {
     fetchData();
   };
 
-  const searchHandler = (e) => {
+  const handleSearch = (e) => {
     setInputText(e.target.value);
     if (keywordSearch) {
       setQuery(`keyword=${inputText}`);
@@ -43,7 +43,7 @@ const ArticlesWithTasks = () => {
 
   useEffect(() => {
     fetchData();
-  }, [inputText]);
+  }, [inputText, query]);
 
   return (
     <div className="articles">
@@ -54,7 +54,7 @@ const ArticlesWithTasks = () => {
       <input
         id="searchbyinput"
         placeholder={keywordSearch ? "KEYWORD" : "CONTENT"}
-        onInput={searchHandler}
+        onChange={handleSearch}
         value={inputText}
       />
       {articleData &&

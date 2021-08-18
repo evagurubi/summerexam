@@ -9,12 +9,12 @@ function UKHoliday({ UKdata }) {
   return (
     <div>
       {UKdata.name !== "" ? (
-        <p>
+        <h4>
           It is {UKdata.name} in the United Kingdom, which is a/an {holidayType}
           .
-        </p>
+        </h4>
       ) : (
-        <p>It is not a holiday in the United Kingdom.</p>
+        <h4 className="ukh4">It is not a holiday in the United Kingdom.</h4>
       )}
     </div>
   );

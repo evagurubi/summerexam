@@ -60,37 +60,49 @@ function OwnArticle({ ownTask, fetchOwnData }) {
   return (
     <div className="article">
       <form className="form">
+        <label htmlFor="title">Title</label>
         <textarea
+          id="title"
           className="textarea"
           value={titleData}
           onChange={(e) => setTitleData(e.target.value)}
         />{" "}
         <br />
+        <label htmlFor="keywords">Keywords</label>
         <textarea
+          id="keywords"
           className="textarea"
           value={keywordsData}
           onChange={(e) => setKeywordsData(e.target.value)}
         />
         <br />
+        <label htmlFor="warmer">Warmer</label>
         <textarea
+          id="warmer"
           className="textarea"
           value={warmerData}
           onChange={(e) => setWarmerData(e.target.value)}
         />
         <br />
+        <label htmlFor="content">Content</label>
         <textarea
+          id="content"
           className="content"
           value={contentData}
           onChange={(e) => setContentData(e.target.value)}
         />
         <br />
+        <label htmlFor="photoURL">Photo URL</label>
         <textarea
+          id="photoURL"
           className="textarea"
           value={photoURLData}
           onChange={(e) => setPhotoURLData(e.target.value)}
         />
         <br />
+        <label htmlFor="articleURL">Article URL</label>
         <textarea
+          id="articleURL"
           className="textarea"
           value={originalURLData}
           onChange={(e) => setOriginalURLData(e.target.value)}

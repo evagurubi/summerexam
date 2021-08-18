@@ -4,6 +4,7 @@ const app = express();
 const swaggerUi = require("swagger-ui-express");
 const YAML = require("yamljs");
 const swaggerDocument = YAML.load("./swagger.yaml");
+const errorHandler = require("./middlewares/errorHandler");
 
 //Import routes
 const userRoute = require("./routes/userRoutes");
@@ -26,5 +27,6 @@ app.use("/api/articles", articleRoute);
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 //err, req, res, next hibakezelő
+app.use(errorHandler);
 
 module.exports = app;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Article from "./Article";
+import Loader from "../Loader/Loader";
 import "./Articles.css";
 
 const Articles = () => {
@@ -24,11 +25,12 @@ const Articles = () => {
 
   useEffect(() => {
     fetchData();
-    console.log(
+
+    /*  console.log(
       document.documentElement.clientHeight,
       document.documentElement.scrollTop,
       document.documentElement.offsetHeight
-    );
+    );*/
   }, [pageCounter]);
 
   const infiniteScroll = () => {
@@ -53,7 +55,7 @@ const Articles = () => {
           {data.length > 0 ? (
             data.map((el, i) => <Article key={i} el={el} />)
           ) : (
-            <p>Loading...</p>
+            <Loader />
           )}
         </div>
       </div>

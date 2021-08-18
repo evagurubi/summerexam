@@ -22,24 +22,75 @@
   width: 100%;
   min-height: 85vh;
   background: rgba($dark1, 0.3);
-  padding-top: 20px;
+  //padding-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .holidayscontent {
   margin: 6rem 1.5rem;
-  min-height: 50%;
-  background: rgba($dark1, 0.7);
-  backdrop-filter: blur(2px);
+  min-height: 450px;
+  background: rgba($dark2, 0.7);
+  backdrop-filter: blur(5px);
   padding: 60px;
   border-radius: 5px;
+  line-height: 150%;
+  font-weight: bold;
   text-align: center;
   width: 1000px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-transform: uppercase;
+}
+.holidaysdata {
+  position: absolute;
+  top: 40%;
+  min-height: 50%;
+}
+
+h4 {
+  margin-bottom: 20px;
+}
+
+.ukh4 {
+  animation: fadeIn 6s;
+}
+
+.ausush4 {
+  animation: fadeIn 3s;
+}
+.whydonth4 {
+  position: absolute;
+  top: 10%;
+  animation: fadeIn 5s;
+}
+.animatedh3 {
+  animation: scaling 5s;
+  position: absolute;
+  bottom: 10%;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scaling {
+  0% {
+    transform: scale(0);
+  }
+  90% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -47,11 +98,9 @@
     justify-content: left;
     padding: 10px;
     margin: 1rem 0.5rem;
+    line-height: 100%;
     h4 {
       font-size: 1rem;
-    }
-    p {
-      font-size: 0.8rem;
     }
   }
 }

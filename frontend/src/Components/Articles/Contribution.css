@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
 .contributionbox {
   width: 100%;
   height: 85vh;
@@ -22,6 +23,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  font-family: "Lato", sans-serif;
+  color: #d9e0df;
 }
 
 .textarea {
@@ -49,6 +52,7 @@ input[id="submitarticle"] {
   display: inline-block;
   font-size: 14px;
   cursor: pointer;
+  font-family: "Lato", sans-serif;
 }
 
 input[id="submitarticle"]:hover {

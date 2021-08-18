@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
 .homecontainer {
   position: relative;
   height: 85vh;
@@ -19,7 +20,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  min-height: 85vh;
   background: rgba(99, 110, 108, 0.3);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -32,14 +33,14 @@
           justify-content: center;
 }
 
-.intro .introcontent {
+.introcontent {
   margin: 0 1.5rem;
-  background: rgba(99, 110, 108, 0.7);
+  background: rgba(145, 153, 152, 0.8);
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
   padding: 60px;
   border-radius: 5px;
-  text-align: center;
+  text-align: justify;
   width: 1000px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -49,17 +50,30 @@
       -ms-flex-direction: column;
           flex-direction: column;
   text-transform: uppercase;
+  line-height: 180%;
+}
+
+.h1font {
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 @media screen and (max-width: 1000px) {
   .introcontent {
-    margin: 0 80px;
+    margin: 0 30px;
+    line-height: 110%;
+    padding: 5px !important;
   }
-  .introcontent .h1font {
+  .h1font {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 110%;
+  }
+  .h1 {
     font-size: 1.2rem;
   }
-  .introcontent .h4font {
-    font-size: 0.6rem;
+  .h4font {
+    font-size: 0.8rem;
   }
 }
 /*# sourceMappingURL=Home.css.map */

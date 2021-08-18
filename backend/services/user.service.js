@@ -16,7 +16,7 @@ exports.createUser = async (decoded, adminRights) => {
     });
 
     let mailOptions = {
-      from: "",
+      from: "The ELTforYOU team",
       to: decoded.email,
       subject: "Signup",
       html: `<h3>Hello ${decoded.name}!<h3/>
@@ -49,7 +49,6 @@ exports.createUser = async (decoded, adminRights) => {
       isAdmin: adminRights,
     });
 
-    // console.log("user:", user);
     return user.save();
   }
 };
@@ -68,8 +67,6 @@ exports.removeUser = (id) => {
 
 exports.listUser = (id) => {
   return User.findOne({ sub: id }).then((result) => {
-    //result = result.toJSON();
-
     return result;
   });
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import OwnArticle from "./OwnArticle";
+import Loader from "../Loader/Loader";
 import "./Articles.css";
 
 function OwnArticles() {
@@ -31,10 +32,13 @@ function OwnArticles() {
       <div className="articlescontent">
         <h2>Update or delete your articles, as you wish</h2>
         <div className="articleitems">
-          {ownData &&
+          {ownData ? (
             ownData.map((item, i) => (
               <OwnArticle key={i} ownTask={item} fetchOwnData={fetchOwnData} />
-            ))}
+            ))
+          ) : (
+            <Loader />
+          )}
         </div>
       </div>
     </div>

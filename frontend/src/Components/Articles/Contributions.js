@@ -53,7 +53,7 @@ const Contributions = () => {
     <div className="contributionbox">
       <form className="form" onSubmit={(e) => e.preventDefault()}>
         <textarea
-          className="textarea"
+          className="textarea contribution"
           type="text"
           id="title"
           name="title"
@@ -62,7 +62,7 @@ const Contributions = () => {
           value={titleData}
         />
         <textarea
-          className="textarea"
+          className="textarea contribution"
           type="text"
           id="keywords"
           name="keywords"
@@ -71,7 +71,7 @@ const Contributions = () => {
           value={keywordsData}
         />
         <textarea
-          className="textarea"
+          className="textarea contribution"
           type="text"
           id="warmer"
           name="warmer"
@@ -80,7 +80,7 @@ const Contributions = () => {
           value={warmerData}
         />
         <textarea
-          className="content"
+          className="content contribution"
           type="text"
           name="content"
           placeholder="CONTENT"
@@ -88,7 +88,7 @@ const Contributions = () => {
           value={contentData}
         />
         <textarea
-          className="textarea"
+          className="textarea contribution"
           type="text"
           id="photoURL"
           name="photoURL"
@@ -97,7 +97,7 @@ const Contributions = () => {
           value={photoURLData}
         />
         <textarea
-          className="textarea"
+          className="textarea contribution"
           type="text"
           id="originalURL"
           name="originalURL"

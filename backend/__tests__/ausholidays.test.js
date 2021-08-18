@@ -66,22 +66,37 @@ describe("Tests GET requests to /api/ausholidays endpoint", () => {
   it("Should return holiday and writes it in DB only if wasn't there before.", async () => {
     // given an empty db
     //when
-    const response = await request.get(
+    const response1 = await request.get(
       "/api/holidays/aus?year=2021&month=8&day=13"
     );
-    const res = await request.get("/api/holidays/aus?year=2021&month=8&day=13");
+    const response2 = await request.get(
+      "/api/holidays/aus?year=2021&month=8&day=13"
+    );
 
-    const resp = await request.get("/api/holidays/aus?year=2021&month=1&day=1");
+    const response3 = await request.get(
+      "/api/holidays/aus?year=2021&month=1&day=1"
+    );
 
     const ausholidays = await Ausholiday.find();
     //then
     expect(ausholidays.length).toEqual(2);
-    expect(response.status).toBe(200);
-    expect(res.status).toBe(200);
-    expect(resp.status).toBe(200);
-    expect(response.body.message.name).toBe("");
-    expect(res.body.message.name).toBe("");
-    expect(resp.body.message.name).toBe("New Year's Day");
+    expect(response1.status).toBe(200);
+    expect(response2.status).toBe(200);
+    expect(response3.status).toBe(200);
+    expect(response1.body.message.name).toBe("");
+    expect(response2.body.message.name).toBe("");
+    expect(response3.body.message.name).toBe("New Year's Day");
+  });
+
+  it("Should only call the Holidays API if holiday for the day is not in DB.", async () => {
+    // given an empty db
+    //when
+    await request.get("/api/holidays/aus?year=2021&month=8&day=13");
+    await request.get("/api/holidays/aus?year=2021&month=8&day=13");
+
+    await request.get("/api/holidays/aus?year=2021&month=1&day=1");
+
+    //then
     expect(spy).toHaveBeenCalledTimes(2);
   });
 });

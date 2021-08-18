@@ -73,7 +73,7 @@ function Holidays() {
     }, 3000);
     setTimeout(() => {
       fetchAusData();
-    }, 4000);
+    }, 6000);
   }, []);
 
   return (
@@ -81,17 +81,23 @@ function Holidays() {
       <img src={New_York} id="nyimage" />
       <div className="holidays">
         <div className="holidayscontent">
-          <h4>
+          <h4 className="whydonth4">
             Why don't you start your lesson with something authentic, like
-            discussing holidays in English-speaking countries?
-          </h4>
-          <h4>
+            discussing holidays in English-speaking countries? <br />
+            <br />
             It is {newdate}, {dayname} today.
           </h4>
-          {UKdata && <UKHoliday UKdata={UKdata.message} />}
-          {USdata && <USHoliday USdata={USdata.message} />}
-          {Ausdata && <AusHoliday Ausdata={Ausdata.message} />}
-          <h4>Log in and search for articles on the topic and much more...</h4>
+
+          <div className="holidaysdata">
+            {UKdata && <UKHoliday UKdata={UKdata.message} />}
+            {USdata && <USHoliday USdata={USdata.message} />}
+            {Ausdata && <AusHoliday Ausdata={Ausdata.message} />}
+          </div>
+          {Ausdata && (
+            <h3 className="animatedh3">
+              Search for articles on the topic and much more...
+            </h3>
+          )}
         </div>
       </div>
     </div>
