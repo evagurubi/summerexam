@@ -7,7 +7,7 @@ exports.createUKholiday = async (req) => {
   let year = req.query.year;
   let month = req.query.month;
   let day = req.query.day;
-  let newdate = day + "/" + month;
+  let newdate = day + "/" + month + "/" + year;
 
   let existingUKHoliday = await UKholiday.findOne({ date: newdate });
 
@@ -40,7 +40,7 @@ exports.createUSholiday = async (req) => {
   let year = req.query.year;
   let month = req.query.month;
   let day = req.query.day;
-  let newdate = day + "/" + month;
+  let newdate = day + "/" + month + "/" + year;
 
   let existingUSHoliday = await USholiday.findOne({ date: newdate });
 
@@ -49,7 +49,7 @@ exports.createUSholiday = async (req) => {
   let response = await axios.get(
     `https://holidays.abstractapi.com/v1/?api_key=f1fab01a5ea24ac7afd5eecb600df352&country=US&year=${year}&month=${month}&day=${day}`
   );
-  //console.log(response.data);
+  console.log("Comes back from API", response.data);
   let holidayObject;
   if (response.data.length === 0)
     holidayObject = {

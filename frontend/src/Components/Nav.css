@@ -198,10 +198,8 @@
   }
   .nav-links:hover {
     color: #fff;
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
-    -webkit-transition: all 0.1s ease;
-    transition: all 0.1s ease;
+    /* transform: scale(1.2);
+    transition: all 0.1s ease;*/
   }
   .nav-item:hover {
     border: none;
@@ -248,8 +246,8 @@
     color: #636e6c;
     background-color: transparent;
   }
-  /* .nav-item:not(:last-child):hover {
+  .nav-item:not(:last-child):hover {
     border-bottom: none;
-  }*/
+  }
 }
 /*# sourceMappingURL=Nav.css.map */

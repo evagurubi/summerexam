@@ -9,7 +9,11 @@ const mock = new MockAdapter(axios);
 const db = require("./utils/db");
 const User = require("../models/User");
 
-beforeAll(async () => await db.connectToDatabase());
+beforeAll(async () => {
+  jest.setTimeout(15000);
+
+  await db.connectToDatabase();
+});
 
 afterEach(async () => {
   await db.clearDatabase();

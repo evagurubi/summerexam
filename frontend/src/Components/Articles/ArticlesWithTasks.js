@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ArticleWithTask from "./ArticleWithTask";
+import Loader from "../Loader/Loader";
 
 const ArticlesWithTasks = () => {
   const [articleData, setArticleData] = useState(null);
@@ -57,8 +58,11 @@ const ArticlesWithTasks = () => {
         onChange={handleSearch}
         value={inputText}
       />
-      {articleData &&
-        articleData.map((el, i) => <ArticleWithTask key={i} article={el} />)}
+      {articleData ? (
+        articleData.map((el, i) => <ArticleWithTask key={i} article={el} />)
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 };

@@ -138,8 +138,8 @@
 
   .nav-links:hover {
     color: #fff;
-    transform: scale(1.2);
-    transition: all 0.1s ease;
+    /* transform: scale(1.2);
+    transition: all 0.1s ease;*/
   }
 
   .nav-item:hover {
@@ -178,7 +178,7 @@
     @include hoverbutton($dark1);
   }
 
-  /* .nav-item:not(:last-child):hover {
+  .nav-item:not(:last-child):hover {
     border-bottom: none;
-  }*/
+  }
 }
