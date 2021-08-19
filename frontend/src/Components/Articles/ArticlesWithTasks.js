@@ -30,7 +30,10 @@ const ArticlesWithTasks = () => {
     },
   };
   const fetchData = () => {
-    fetch(`/api/articles/withtasks?${query}`, requestOptions)
+    fetch(
+      `http://localhost:5000/api/articles/withtasks?${query}`,
+      requestOptions
+    )
       .then((res) => {
         if (res.status !== 200) return "It is still loading";
 

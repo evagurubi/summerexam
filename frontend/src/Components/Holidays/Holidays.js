@@ -31,7 +31,9 @@ function Holidays() {
   const [Ausdata, setAusdata] = useState(null);
 
   const fetchUKData = () => {
-    fetch(`/api/holidays/uk?year=${year}&month=${month}&day=${day}`)
+    fetch(
+      `http://localhost:5000/api/holidays/uk?year=${year}&month=${month}&day=${day}`
+    )
       .then((res) => {
         if (res.status !== 200) return "It is still loading";
         return res.json();
@@ -43,7 +45,9 @@ function Holidays() {
   };
 
   const fetchUSData = () => {
-    fetch(`/api/holidays/us?year=${year}&month=${month}&day=${day}`)
+    fetch(
+      `http://localhost:5000/api/holidays/us?year=${year}&month=${month}&day=${day}`
+    )
       .then((res) => {
         if (res.status !== 200) return "It is still loading";
         return res.json();
@@ -55,7 +59,9 @@ function Holidays() {
   };
 
   const fetchAusData = () => {
-    fetch(`/api/holidays/aus?year=${year}&month=${month}&day=${day}`)
+    fetch(
+      `http://localhost:5000/api/holidays/aus?year=${year}&month=${month}&day=${day}`
+    )
       .then((res) => {
         if (res.status !== 200) return "It is still loading";
         return res.json();

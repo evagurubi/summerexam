@@ -14,7 +14,7 @@ function OwnAccount({ setUser }) {
   };
 
   const fetchMyData = () => {
-    fetch("/api/account", requestOptions)
+    fetch("http://localhost:5000/api/account", requestOptions)
       .then((response) => response.json())
       .then((data) => {
         setMyData(data);
@@ -31,7 +31,7 @@ function OwnAccount({ setUser }) {
       },
     };
 
-    fetch(`/api/account`, options)
+    fetch(`http://localhost:5000/api/account`, options)
       .then((response) => response.text())
       .then((res) => {
         console.log(res);

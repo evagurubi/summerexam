@@ -11,8 +11,26 @@ const userRoute = require("./routes/userRoutes");
 const holidayRoute = require("./routes/holidayRoutes");
 const articleRoute = require("./routes/articleRoutes");
 
+app.use(function (req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization, access-control-allow-origin"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  next();
+});
+
+//Can post from frontend
+const corsOptions = {
+  origin: "*",
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
+
 //Middlewares
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
 
 //Test

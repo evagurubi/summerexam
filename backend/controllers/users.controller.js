@@ -25,7 +25,7 @@ exports.insert = async (req, res) => {
 
   const response = await axios(options);
 
-  // console.log("axiosresponse", response.data);
+  // console.log("axiosresponse", response);
   const token = response.data.id_token;
   // console.log(token);
 

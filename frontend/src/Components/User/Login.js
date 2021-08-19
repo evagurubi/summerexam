@@ -12,11 +12,12 @@ const Login = () => {
       body: JSON.stringify(token),
     };
 
-    fetch("/api/account/login", requestOptions)
+    fetch("http://localhost:5000/api/account/login", requestOptions)
       .then((response) => response.text())
       .then((data) => {
         localStorage.setItem("JWT", data);
         window.location.href = "/articleswithtasks";
+        console.log(data);
       });
   }, []);
 

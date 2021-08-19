@@ -8,7 +8,7 @@ const Articles = () => {
   const [pageCounter, setPageCounter] = useState(0);
 
   const fetchData = () => {
-    fetch(`/api/articles/?page=${pageCounter}`)
+    fetch(`http://localhost:5000/api/articles/?page=${pageCounter}`)
       .then((response) => response.json())
       .then((newdata) => {
         setData([...data, ...newdata]);
