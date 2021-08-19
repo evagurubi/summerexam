@@ -6,16 +6,15 @@ const ArticlesWithTasks = () => {
   const [articleData, setArticleData] = useState(null);
   const [keywordSearch, setKeywordSearch] = useState(true);
   const [inputText, setInputText] = useState("");
-  const [query, setQuery] = useState(`keyword=${inputText}`);
+  const [query, setQuery] = useState("");
 
   const handleSearchBy = () => {
     setInputText("");
+    setQuery("");
     setKeywordSearch(!keywordSearch);
-    fetchData();
   };
 
-  const handleSearch = (e) => {
-    setInputText(e.target.value);
+  const handleSearch = () => {
     if (keywordSearch) {
       setQuery(`keyword=${inputText}`);
     } else {
@@ -41,26 +40,32 @@ const ArticlesWithTasks = () => {
       })
       .then((json) => {
         setArticleData(json);
+
         //console.log(json);
       });
   };
 
   useEffect(() => {
     fetchData();
-  }, [inputText, query]);
+  }, [query, keywordSearch]);
 
   return (
     <div className="articles">
-      <button id="searchbybutton" onClick={handleSearchBy}>
-        SEARCH BY
-      </button>
+      <div id="inputdiv">
+        <button id="searchbybutton" onClick={handleSearchBy}>
+          SET YOUR SEARCH
+        </button>
 
-      <input
-        id="searchbyinput"
-        placeholder={keywordSearch ? "KEYWORD" : "CONTENT"}
-        onChange={handleSearch}
-        value={inputText}
-      />
+        <input
+          id="searchbyinput"
+          placeholder={keywordSearch ? "KEYWORD" : "CONTENT"}
+          onInput={(e) => setInputText(e.target.value)}
+          value={inputText}
+        />
+        <button id="searchbutton" onClick={handleSearch}>
+          SEARCH
+        </button>
+      </div>
       {articleData ? (
         articleData.map((el, i) => <ArticleWithTask key={i} article={el} />)
       ) : (

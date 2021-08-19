@@ -144,6 +144,15 @@ button:hover {
   background-color: transparent;
 }
 
+#inputdiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 #searchbybutton {
   background-color: #636e6c;
   color: #d9e0df;
@@ -165,8 +174,32 @@ button:hover {
   background-color: transparent;
 }
 
+#searchbutton {
+  background-color: #636e6c;
+  color: #d9e0df;
+  border: solid 2px #d9e0df;
+  border-radius: 7px;
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  cursor: pointer;
+  font-family: "Lato", sans-serif;
+  height: 30px;
+  width: 165.83px;
+}
+
+#searchbutton:hover {
+  border: solid 2px #636e6c;
+  color: #636e6c;
+  background-color: transparent;
+}
+
 #searchbyinput {
   margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 10px;
   height: 30px;
   min-width: 200px;
   border-radius: 5px;
@@ -195,6 +228,16 @@ button:hover {
   }
   .contribution {
     margin-bottom: 10px;
+  }
+  #inputdiv {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin-left: 20px;
   }
 }
 /*# sourceMappingURL=Articles.css.map */
