@@ -30,12 +30,20 @@ function OwnArticles() {
   return (
     <div className="articles">
       <div className="articlescontent">
-        <h2>Update or delete your articles, as you wish</h2>
+        <h2>You can update or delete your own articles here.</h2>
         <div className="articleitems">
           {ownData ? (
-            ownData.map((item, i) => (
-              <OwnArticle key={i} ownTask={item} fetchOwnData={fetchOwnData} />
-            ))
+            ownData.length === 0 ? (
+              <h5>You haven't posted anything yet.</h5>
+            ) : (
+              ownData.map((item, i) => (
+                <OwnArticle
+                  key={i}
+                  ownTask={item}
+                  fetchOwnData={fetchOwnData}
+                />
+              ))
+            )
           ) : (
             <Loader />
           )}

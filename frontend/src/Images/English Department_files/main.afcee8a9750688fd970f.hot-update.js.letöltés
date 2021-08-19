@@ -1,0 +1,317 @@
+webpackHotUpdate("main",{
+
+/***/ "./src/Components/Articles/OwnArticle.js":
+/*!***********************************************!*\
+  !*** ./src/Components/Articles/OwnArticle.js ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(__react_refresh_utils__, __react_refresh_error_overlay__) {/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-dev-runtime */ "./node_modules/react/jsx-dev-runtime.js");
+/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__);
+__webpack_require__.$Refresh$.runtime = __webpack_require__(/*! C:/Users/hp/Documents/VICA/fullstackapi/summerexam/frontend/node_modules/react-refresh/runtime.js */ "./node_modules/react-refresh/runtime.js");
+__webpack_require__.$Refresh$.setup(module.i);
+
+var _jsxFileName = "C:\\Users\\hp\\documents\\vica\\fullstackapi\\summerexam\\frontend\\src\\Components\\Articles\\OwnArticle.js",
+    _s = __webpack_require__.$Refresh$.signature();
+
+
+
+
+
+function OwnArticle({
+  ownTask,
+  fetchOwnData
+}) {
+  _s();
+
+  const [formData, setFormData] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(ownTask);
+  const [titleData, setTitleData] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(ownTask.title);
+  const [keywordsData, setKeywordsData] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(ownTask.keywords);
+  const [warmerData, setWarmerData] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(ownTask.warmer);
+  const [contentData, setContentData] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(ownTask.content);
+  const [photoURLData, setPhotoURLData] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(ownTask.photoURL);
+  const [originalURLData, setOriginalURLData] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(ownTask.originalURL);
+
+  const handlePatch = event => {
+    event.preventDefault();
+    const newData = {
+      title: titleData,
+      keywords: keywordsData,
+      warmer: warmerData,
+      content: contentData,
+      photoURL: photoURLData,
+      originalURL: originalURLData
+    };
+    setFormData(newData);
+    console.log(newData);
+  };
+
+  const handleDelete = () => {
+    const options = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("JWT")
+      }
+    };
+    fetch(`/api/articles/own/${ownTask._id}`, options).then(response => response.text()).then(() => {
+      fetchOwnData();
+    });
+  };
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const requestOptions = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("JWT")
+      },
+      body: JSON.stringify(formData)
+    };
+    fetch(`/api/articles/own/${ownTask._id}`, requestOptions).then(response => response.text()).then(data => {
+      console.log(data);
+    });
+  }, [formData]);
+  return /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("div", {
+    className: "article",
+    children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("form", {
+      className: "form",
+      children: [/*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("label", {
+        htmlFor: "title",
+        children: "Title"
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 64,
+        columnNumber: 9
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("textarea", {
+        id: "title",
+        className: "textarea",
+        value: titleData,
+        onChange: e => setTitleData(e.target.value)
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 65,
+        columnNumber: 9
+      }, this), " ", /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("br", {}, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 71,
+        columnNumber: 9
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("label", {
+        htmlFor: "keywords",
+        children: "Keywords"
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 72,
+        columnNumber: 9
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("textarea", {
+        id: "keywords",
+        className: "textarea",
+        value: keywordsData,
+        onChange: e => setKeywordsData(e.target.value)
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 73,
+        columnNumber: 9
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("br", {}, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 79,
+        columnNumber: 9
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("label", {
+        htmlFor: "warmer",
+        children: "Warmer"
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 80,
+        columnNumber: 9
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("textarea", {
+        id: "warmer",
+        className: "textarea",
+        value: warmerData,
+        onChange: e => setWarmerData(e.target.value)
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 81,
+        columnNumber: 9
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("br", {}, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 87,
+        columnNumber: 9
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("label", {
+        htmlFor: "content",
+        children: "Content"
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 88,
+        columnNumber: 9
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("textarea", {
+        id: "content",
+        className: "content",
+        value: contentData,
+        onChange: e => setContentData(e.target.value)
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 89,
+        columnNumber: 9
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("br", {}, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 95,
+        columnNumber: 9
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("label", {
+        htmlFor: "photoURL",
+        children: "Photo URL"
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 96,
+        columnNumber: 9
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("textarea", {
+        id: "photoURL",
+        className: "textarea",
+        value: photoURLData,
+        onChange: e => setPhotoURLData(e.target.value)
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 97,
+        columnNumber: 9
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("br", {}, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 103,
+        columnNumber: 9
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("label", {
+        htmlFor: "articleURL",
+        children: "Article URL"
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 104,
+        columnNumber: 9
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("textarea", {
+        id: "articleURL",
+        className: "textarea",
+        value: originalURLData,
+        onChange: e => setOriginalURLData(e.target.value)
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 105,
+        columnNumber: 9
+      }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("input", {
+        id: "submitchange",
+        type: "submit",
+        value: "Submit the changes",
+        onClick: e => handlePatch(e)
+      }, void 0, false, {
+        fileName: _jsxFileName,
+        lineNumber: 111,
+        columnNumber: 9
+      }, this)]
+    }, void 0, true, {
+      fileName: _jsxFileName,
+      lineNumber: 63,
+      columnNumber: 7
+    }, this), /*#__PURE__*/Object(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_1__["jsxDEV"])("button", {
+      id: "deletebutton",
+      onClick: handleDelete,
+      children: "Delete activity"
+    }, void 0, false, {
+      fileName: _jsxFileName,
+      lineNumber: 118,
+      columnNumber: 7
+    }, this)]
+  }, void 0, true, {
+    fileName: _jsxFileName,
+    lineNumber: 62,
+    columnNumber: 5
+  }, this);
+}
+
+_s(OwnArticle, "36CSEmtFqmO0kPhgewonmZuDsKA=");
+
+_c = OwnArticle;
+/* harmony default export */ __webpack_exports__["default"] = (OwnArticle);
+
+var _c;
+
+__webpack_require__.$Refresh$.register(_c, "OwnArticle");
+
+const currentExports = __react_refresh_utils__.getModuleExports(module.i);
+__react_refresh_utils__.registerExportsForReactRefresh(currentExports, module.i);
+
+if (true) {
+  const isHotUpdate = !!module.hot.data;
+  const prevExports = isHotUpdate ? module.hot.data.prevExports : null;
+
+  if (__react_refresh_utils__.isReactRefreshBoundary(currentExports)) {
+    module.hot.dispose(
+      /**
+       * A callback to performs a full refresh if React has unrecoverable errors,
+       * and also caches the to-be-disposed module.
+       * @param {*} data A hot module data object from Webpack HMR.
+       * @returns {void}
+       */
+      function hotDisposeCallback(data) {
+        // We have to mutate the data object to get data registered and cached
+        data.prevExports = currentExports;
+      }
+    );
+    module.hot.accept(
+      /**
+       * An error handler to allow self-recovering behaviours.
+       * @param {Error} error An error occurred during evaluation of a module.
+       * @returns {void}
+       */
+      function hotErrorHandler(error) {
+        if (
+          typeof __react_refresh_error_overlay__ !== 'undefined' &&
+          __react_refresh_error_overlay__
+        ) {
+          __react_refresh_error_overlay__.handleRuntimeError(error);
+        }
+
+        if (typeof __react_refresh_test__ !== 'undefined' && __react_refresh_test__) {
+          if (window.onHotAcceptError) {
+            window.onHotAcceptError(error.message);
+          }
+        }
+
+        __webpack_require__.c[module.i].hot.accept(hotErrorHandler);
+      }
+    );
+
+    if (isHotUpdate) {
+      if (
+        __react_refresh_utils__.isReactRefreshBoundary(prevExports) &&
+        __react_refresh_utils__.shouldInvalidateReactRefreshBoundary(prevExports, currentExports)
+      ) {
+        module.hot.invalidate();
+      } else {
+        __react_refresh_utils__.enqueueUpdate(
+          /**
+           * A function to dismiss the error overlay after performing React refresh.
+           * @returns {void}
+           */
+          function updateCallback() {
+            if (
+              typeof __react_refresh_error_overlay__ !== 'undefined' &&
+              __react_refresh_error_overlay__
+            ) {
+              __react_refresh_error_overlay__.clearRuntimeErrors();
+            }
+          }
+        );
+      }
+    }
+  } else {
+    if (isHotUpdate && __react_refresh_utils__.isReactRefreshBoundary(prevExports)) {
+      module.hot.invalidate();
+    }
+  }
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! C:/Users/hp/Documents/VICA/fullstackapi/summerexam/frontend/node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js */ "./node_modules/@pmmmwh/react-refresh-webpack-plugin/lib/runtime/RefreshUtils.js"), __webpack_require__(/*! C:/Users/hp/Documents/VICA/fullstackapi/summerexam/frontend/node_modules/react-dev-utils/refreshOverlayInterop.js */ "./node_modules/react-dev-utils/refreshOverlayInterop.js")))
+
+/***/ })
+
+})
+//# sourceMappingURL=main.afcee8a9750688fd970f.hot-update.js.map

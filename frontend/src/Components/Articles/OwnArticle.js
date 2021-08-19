@@ -22,6 +22,7 @@ function OwnArticle({ ownTask, fetchOwnData }) {
       originalURL: originalURLData,
     };
     setFormData(newData);
+    // console.log(newData);
   };
 
   const handleDelete = () => {
@@ -33,7 +34,7 @@ function OwnArticle({ ownTask, fetchOwnData }) {
       },
     };
 
-    fetch(`/api/articles/own/${ownTask._id}`, options)
+    fetch(`http://localhost:5000/api/articles/own/${ownTask._id}`, options)
       .then((response) => response.text())
       .then(() => {
         fetchOwnData();
@@ -50,7 +51,10 @@ function OwnArticle({ ownTask, fetchOwnData }) {
       body: JSON.stringify(formData),
     };
 
-    fetch(`/api/articles/own/${ownTask._id}`, requestOptions)
+    fetch(
+      `http://localhost:5000/api/articles/own/${ownTask._id}`,
+      requestOptions
+    )
       .then((response) => response.text())
       .then((data) => {
         console.log(data);

@@ -3,8 +3,9 @@ const Article = require("../models/Article");
 exports.list = (keyword, content) => {
   return new Promise((resolve, reject) => {
     if (keyword) {
-      Article.find({ keywords: { $regex: keyword, $options: "i" } }).exec(
-        function (err, articles) {
+      Article.find({ keywords: { $regex: keyword, $options: "i" } })
+        .sort({ $natural: -1 })
+        .exec(function (err, articles) {
           if (err) {
             //console.log(err);
             reject(err);
@@ -12,12 +13,12 @@ exports.list = (keyword, content) => {
             resolve(articles);
             // console.log(articles);
           }
-        }
-      );
+        });
     }
     if (content) {
-      Article.find({ content: { $regex: content, $options: "i" } }).exec(
-        function (err, articles) {
+      Article.find({ content: { $regex: content, $options: "i" } })
+        .sort({ $natural: -1 })
+        .exec(function (err, articles) {
           if (err) {
             //console.log(err);
             reject(err);
@@ -25,18 +26,19 @@ exports.list = (keyword, content) => {
             resolve(articles);
             // console.log(articles);
           }
-        }
-      );
+        });
     } else
-      Article.find().exec(function (err, articles) {
-        if (err) {
-          //console.log(err);
-          reject(err);
-        } else {
-          resolve(articles);
-          // console.log(articles);
-        }
-      });
+      Article.find()
+        .sort({ $natural: -1 })
+        .exec(function (err, articles) {
+          if (err) {
+            //console.log(err);
+            reject(err);
+          } else {
+            resolve(articles);
+            // console.log(articles);
+          }
+        });
   });
 };
 
@@ -44,6 +46,7 @@ exports.listarticlepages = (perPage, page) => {
   return new Promise((resolve, reject) => {
     Article.find()
       .limit(perPage)
+      .sort({ $natural: -1 })
       .skip(perPage * page)
       .exec(function (err, articles) {
         if (err) {
@@ -64,7 +67,8 @@ exports.createArticle = async (articleBody, id) => {
 };
 
 exports.findByUserID = (id) => {
-  return Article.find({ userId: id }).then((result) => {
+  return Article.find({ userId: id })
+  .then((result) => {
     //result = result.toJSON();
 
     return result;
