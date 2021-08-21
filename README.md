@@ -41,4 +41,21 @@ In the project backend directory, you can run:
 
 ## Sources
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nibh rhoncus, blandit diam sed, ultrices lectus. Donec vel nunc et urna aliquam tempus sit amet tincidunt enim. Vivamus nibh leo, dapibus a tellus et, pellentesque varius sem. Duis sed augue non lacus pharetra ultrices. Etiam ac mattis diam. Mauris sit amet quam in leo pharetra lobortis. Suspendisse potenti. Nullam imperdiet vehicula justo ultrices volutpat. Phasellus sed lacus mollis, porta felis sed, egestas nisi. Mauris quis accumsan ipsum. Nam eu ex vitae sapien rhoncus pretium vitae laoreet orci. Maecenas fermentum mauris quam, volutpat pulvinar lectus rutrum vitae.
+### Background photos:
+
+#### London:
+
+https://photostockeditor.com/image-rf/london-big-ben-double-decker-bus-and-red-telephone-box-1191335506
+London Big Ben, double-decker bus and red telephone box Image Royalty Free
+Creative Commons
+
+#### New York:
+
+Wikipedia
+by Oto Godfrey
+Creative Commons Attribution-Share Alike
+
+#### Sidney:
+
+https://www.piqsels.com/en/search?q=sydney+harbour+bridge+night
+Piqsels, royalty free sydney harbour bridge night photos free download
