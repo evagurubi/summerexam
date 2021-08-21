@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
-import London_scene from "../Images/London_scene.jpg";
+import London_scene from "../../Images/London_scene.jpg";
 const Home = () => {
   return (
     <div className="homecontainer">

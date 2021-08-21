@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./App.css";
-import Home from "./Components/Home";
-import Nav from "./Components/Nav";
+import Home from "./Components/Home/Home";
+import Nav from "./Components/Nav/Nav";
 import Articles from "./Components/Articles/Articles";
 import Holidays from "./Components/Holidays/Holidays";
 import ArticlesWithTasks from "./Components/Articles/ArticlesWithTasks";

@@ -8,6 +8,7 @@ $dark1: rgb(99, 110, 108);
 $dark2: rgb(145, 153, 152);
 $lighter1: rgb(217, 224, 223);
 
+//Forms for contributions and updates, variable needed for width
 @mixin form($width) {
   width: $width;
   display: flex;
@@ -17,6 +18,7 @@ $lighter1: rgb(217, 224, 223);
   color: $lighter1;
 }
 
+//Buttons, colour variables to be added based on background
 @mixin button($background, $bordercolor) {
   background-color: $background;
   color: $bordercolor;

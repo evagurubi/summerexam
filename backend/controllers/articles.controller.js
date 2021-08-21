@@ -1,6 +1,7 @@
 const Article = require("../services/article.service");
 const jwt_decode = require("jwt-decode");
 
+//It sends back article title and content, 12 per page
 exports.list = (req, res) => {
   let page = 0;
   if (req.query.page) {
@@ -19,6 +20,7 @@ exports.list = (req, res) => {
   });
 };
 
+//It sends back article and tasks, links etc., possible search by keyword or by content
 exports.listall = (req, res) => {
   let keyword = null;
   let content = null;
@@ -35,6 +37,7 @@ exports.listall = (req, res) => {
   Article.list(keyword, content).then((result) => res.json(result));
 };
 
+//Logged-in users post articles. Auth-token required in header.
 exports.insert = (req, res) => {
   const decoded = jwt_decode(req.header("auth-token"));
 
@@ -43,6 +46,7 @@ exports.insert = (req, res) => {
   );
 };
 
+//It sends back articles posted by logged-in user
 exports.listown = (req, res) => {
   const decoded = jwt_decode(req.header("auth-token"));
   //console.log(decoded);
@@ -57,6 +61,7 @@ exports.listown = (req, res) => {
     });
 };
 
+//Logged-in users modify their own chosen articles
 exports.patchById = (req, res) => {
   Article.patchArticle(req.params.id, req.body).then((result) => {
     if (result.message) res.status(201).send({ message: result.message });
@@ -66,6 +71,7 @@ exports.patchById = (req, res) => {
   });
 };
 
+//Logged-in users delete their own chosen articles
 exports.removeById = (req, res) => {
   Article.removeById(req.params.id).then((result) => {
     res.status(204).send({});
