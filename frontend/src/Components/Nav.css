@@ -140,7 +140,7 @@
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
   .nav-menu {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -200,6 +200,9 @@
     color: #fff;
     /* transform: scale(1.2);
     transition: all 0.1s ease;*/
+  }
+  .nav-item:first-child {
+    margin-top: 50px;
   }
   .nav-item:hover {
     border: none;

@@ -1,4 +1,4 @@
-# A virtual staffroom for our English Department
+# ELTforYOU - A virtual staffroom English Departments
 
 ## Contents
 
@@ -10,18 +10,22 @@
 
 ## Overview
 
-The ELTforYOU application was designed with the needs of the teachers at a language school or the English faculty of any secondary school in mind. could make good use of a database of activities that is based on news articles, relevant issues, current events etc. all very "authentic". And teachers need ideas for warmers, links to articles, more background info as well as "useable" photos/ images that students can compare and contrast. Teachers could search by keyword or title, but content is also made searchable - partly because it was one of the requirements :)) but also because we just want to show students how one particular expression might come up in an authentic text.
+The ELTforYOU application was designed with the needs of teachers at a language school or the English faculty of any secondary school in mind. At the heart of the project is 'authenticity', which almost invariably makes language learning more appealing for students. The application helps teachers share authentic materials - primarily news articles - with each other, complete with relevant warm-up questions and images to compare and contrast. To help daily preparations, there is also a 'holidays' feature, providing users with up-to-date information on holidays in English speaking countries - a fascinating topic to start lessons with from time to time.
+The website is also optimized for mobile devices which has the potential of making the aformentioned daily preparations more flexible, as teachers can easily upload interesting articles they read, write questions for it and share it with their colleagues during the daily commute to work.
 
 ## Key functionalities
 
-Fusce at laoreet massa. Cras pretium interdum vestibulum. Ut a aliquam tellus, id dignissim nisl. Quisque ultrices ex nulla, ac hendrerit urna viverra at. Curabitur fermentum interdum tortor vitae vehicula. Quisque tempus velit lorem, fringilla condimentum ante vehicula quis. Cras vitae augue et ante porta efficitur ultricies quis elit. Nunc eget tempor arcu, eu finibus elit. Praesent sed ligula non orci viverra mattis. Ut turpis ante, imperdiet at vehicula in, blandit congue nulla. Ut posuere neque nec tellus suscipit laoreet. Pellentesque sapien nulla, euismod et dui et, accumsan congue arcu.
+Visitors to the website will get a 'taste of the application' by having access to articles with titles and the list of holidays on that particular day. They can join this 'virtual staffroom' by logging in. After the first login users receive a short welcome email with some instructions. Only logged in users are able to post articles with tasks (and other features) and edit or delete their own posts. Users are not allowed to modify or delete the posts of their colleagues, only the administrator has the right to do that.
+In the 'articles with tasks' section logged-in teachers are able to search the database based on the content of the article or the keywords (provided by the creator of the task). In this section only the titles of the articles are displayed, which users can narrow down by their search. By clicking on the button under the title, users get a warmer question they can use in class to introduce the topic and under the warmer another button leads to the article content and some useful links.
+Users have access to their account and are able to delete it.
 
 ## Technologies
 
 The project was created using:
 
-- React
-- Node
+- React.js 17.0.2
+- Node.js v12.18.2
+- express.js 4.17.1
 
 ## Launch
 
@@ -33,27 +37,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 In the project backend directory, you can run:
 
-`nodemon start.js`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-`npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-`npm run eject`
-Note: this is a one-way operation. Once you `eject`, you can’t go back!\*\*
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+`node start.js`
 
 ## Sources
 

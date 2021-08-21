@@ -22,6 +22,7 @@ const Home = () => {
             a native speaker is motivating, and developing ways to deal with
             ‘real’ texts enables students to read more confidently and
             extensively outside the classroom."
+            <span id="quote"> Rachael Roberts</span>
           </h4>
         </div>
       </div>

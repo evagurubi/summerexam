@@ -67,7 +67,13 @@ const ArticlesWithTasks = () => {
         </button>
       </div>
       {articleData ? (
-        articleData.map((el, i) => <ArticleWithTask key={i} article={el} />)
+        articleData.length === 0 ? (
+          <h3 className="h3font">
+            There is no article with the given conditions.
+          </h3>
+        ) : (
+          articleData.map((el, i) => <ArticleWithTask key={i} article={el} />)
+        )
       ) : (
         <Loader />
       )}
