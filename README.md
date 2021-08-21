@@ -1,4 +1,4 @@
-# ELTforYOU - A virtual staffroom English Departments
+# ELTforYOU - A virtual staffroom for English Departments
 
 ## Contents
 
