@@ -12,7 +12,7 @@ const Articles = () => {
       .then((response) => response.json())
       .then((newdata) => {
         setData([...data, ...newdata]);
-        console.log(data);
+        // console.log(data);
       });
   };
 
@@ -50,7 +50,9 @@ const Articles = () => {
   return (
     <div className="articles">
       <div className="articlescontent">
-        <h2>Authentic materials for your students</h2>
+        <div className="h2div">
+          <h2>Authentic materials for your students</h2>
+        </div>
         <div className="articleitems">
           {data.length > 0 ? (
             data.map((el, i) => <Article key={i} el={el} />)

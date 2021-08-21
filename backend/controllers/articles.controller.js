@@ -52,6 +52,7 @@ exports.listown = (req, res) => {
     });
   else
     Article.findByUserID(decoded.id).then((result) => {
+      console.log("sent2");
       res.status(200).send(result);
     });
 };

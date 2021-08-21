@@ -57,7 +57,7 @@ function OwnArticle({ ownTask, fetchOwnData }) {
     )
       .then((response) => response.text())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
       });
   }, [formData]);
 
