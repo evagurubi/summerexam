@@ -3,6 +3,7 @@ const USholiday = require("../models/USholiday");
 const Ausholiday = require("../models/Ausholiday");
 const axios = require("axios");
 
+//GET request for holiday of the day if it is not in DB yet, returns holiday to controller
 exports.createUKholiday = async (req) => {
   let year = req.query.year;
   let month = req.query.month;
@@ -36,6 +37,7 @@ exports.createUKholiday = async (req) => {
   return holidayObject;
 };
 
+//GET request for holiday of the day if it is not in DB yet, returns holiday to controller
 exports.createUSholiday = async (req) => {
   let year = req.query.year;
   let month = req.query.month;
@@ -69,6 +71,7 @@ exports.createUSholiday = async (req) => {
   return holidayObject;
 };
 
+//GET request for holiday of the day if it is not in DB yet, returns holiday to controller
 exports.createAusholiday = async (req) => {
   let year = req.query.year;
   let month = req.query.month;

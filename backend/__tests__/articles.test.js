@@ -1,5 +1,5 @@
 require("dotenv").config({ path: ".env.test" });
-const app = require("../server"); // Link to your server file
+const app = require("../server"); // Link to server file
 const jwt = require("jsonwebtoken");
 const supertest = require("supertest");
 const request = supertest(app);

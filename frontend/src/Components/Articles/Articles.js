@@ -16,6 +16,7 @@ const Articles = () => {
       });
   };
 
+//A further page is requested from the backend when scroll reaches bottom
   useEffect(() => {
     window.addEventListener("scroll", infiniteScroll);
     return function cleanup() {
@@ -26,13 +27,9 @@ const Articles = () => {
   useEffect(() => {
     fetchData();
 
-    /*  console.log(
-      document.documentElement.clientHeight,
-      document.documentElement.scrollTop,
-      document.documentElement.offsetHeight
-    );*/
   }, [pageCounter]);
 
+//If the element's CSS height is exceeded by the added height of the "useful" windowcontent and the number of pixels the element's content is scrolled vertically the page number is incremented by one 
   const infiniteScroll = () => {
     if (
       document.documentElement.clientHeight +
