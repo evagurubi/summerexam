@@ -1,8 +1,7 @@
 module.exports = (err, req, res, next) => {
   if (err.status) {
-    res.status(err.status).json({ message: err.message });
+    res.status(err.status).send(err.message);
   } else {
-    console.error(err);
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).send("There is a server error!");
   }
 };

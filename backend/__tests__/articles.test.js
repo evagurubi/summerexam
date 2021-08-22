@@ -19,6 +19,7 @@ afterAll(async () => {
 describe("It tests get requests to the /api/articles endpoint", () => {
   it("Should return empty array for GET request when there is nothing in the DB", async () => {
     // given an empty db
+
     //when
     const response = await request.get("/api/articles");
 
@@ -50,6 +51,46 @@ describe("It tests get requests to the /api/articles endpoint", () => {
 
     expect(articles.length).toEqual(1);
     expect(response.body.length).toEqual(1);
+    expect(response.status).toBe(200);
+  });
+
+  it("Should return all objects from database for GET request without auth-token in header", async () => {
+    const someone = { id: "someone" };
+    const myToken = jwt.sign({ someone }, process.env.TOKEN_SECRET);
+
+    const newArticle = {
+      title: "newtitle",
+      keywords: "newkeyword",
+      warmer: "newwarmerquestion",
+      content: "somethingverylong",
+      photoURL: "newphotourl",
+      originalURL: "newarticleurl",
+    };
+
+    const newArticle2 = {
+      title: "newtitle2",
+      keywords: "newkeyword2",
+      warmer: "newwarmerquestion2",
+      content: "somethingverylong2",
+      photoURL: "newphotourl2",
+      originalURL: "newarticleurl2",
+    };
+
+    await request
+      .post("/api/articles")
+      .set("auth-token", `${myToken}`)
+      .send(newArticle);
+
+    await request
+      .post("/api/articles")
+      .set("auth-token", `${myToken}`)
+      .send(newArticle2);
+
+    const articles = await Article.find();
+    const response = await request.get("/api/articles");
+
+    expect(articles.length).toEqual(2);
+    expect(response.body.length).toEqual(articles.length);
     expect(response.status).toBe(200);
   });
 

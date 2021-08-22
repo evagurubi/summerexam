@@ -37,7 +37,10 @@ const ArticlesWithTasks = () => {
       requestOptions
     )
       .then((res) => {
-        if (res.status !== 200) return "It is still loading";
+        if (res.status !== 200) {
+          console.log(res);
+          return "It is still loading";
+        }
 
         return res.json();
       })
@@ -45,7 +48,8 @@ const ArticlesWithTasks = () => {
         setArticleData(json);
 
         //console.log(json);
-      });
+      })
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {

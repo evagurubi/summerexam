@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 
 //Checks if user has proper authorization for request by verifying auth-token in header
 module.exports = function (req, res, next) {
-  console.log(req.header);
+  console.log("here");
   const token = req.header("auth-token");
   if (!token) return res.status(401).send("Access denied");
 
@@ -12,6 +12,6 @@ module.exports = function (req, res, next) {
     req.user = verified;
     next();
   } catch (err) {
-    res.status(400).send("Invalid token.");
+    res.status(400).text("Invalid token.");
   }
 };
