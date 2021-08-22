@@ -26,36 +26,49 @@ The project was created using:
 - React.js 17.0.2
 - Node.js v12.18.2
 - express.js 4.17.1
+- MongoDB
 
 ## Launch
 
-In the project frontend directory, you can run:
+`git clone https://github.com/evagurubi/summerexam`
 
-`npm start`
+### Client side:
+
+`cd frontend` //navigates to frontend folder
+`npm install` //to install npm packages
+`npm start` //starts client side, runs on localhost:3000
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-In the project backend directory, you can run:
+### Backend:
 
-`node start.js`
+`cd backend` //navigates to backend folder
+`npm install` //to install npm packeges
+
+-Create a `.env` file. It should contain the following elements:
+`DB_CONNECT = YOUR_MONGODB_CONNECTION`
+`TOKEN_SECRET = YOUR_JWT_SECRET`
+`GOOGLE_CLIENT_ID = YOUR_GOOGLE_CLIENT_ID`
+`GOOGLE_CLIENT_SECRET = YOUR_GOOGLE_CLIENT_SECRET`
+`MAIL_USERNAME = YOUR_MAIL_USERNAME` //to send emails from to new users via nodemailer
+`MAIL_PASSWORD = YOUR_MAIL_PASSWORD`
+
+`node start.js` //starts server, runs on localhost:5000
 
 ## Sources
 
-### Background photos:
+#### Background photos:
 
-#### London:
+- London:
+  https://photostockeditor.com/image-rf/london-big-ben-double-decker-bus-and-red-telephone-box-1191335506
+  London Big Ben, double-decker bus and red telephone box Image Royalty Free
+  Creative Commons
 
-https://photostockeditor.com/image-rf/london-big-ben-double-decker-bus-and-red-telephone-box-1191335506
-London Big Ben, double-decker bus and red telephone box Image Royalty Free
-Creative Commons
+- New York:
+  Wikipedia
+  by Oto Godfrey
+  Creative Commons Attribution-Share Alike
 
-#### New York:
-
-Wikipedia
-by Oto Godfrey
-Creative Commons Attribution-Share Alike
-
-#### Sidney:
-
-https://www.piqsels.com/en/search?q=sydney+harbour+bridge+night
-Piqsels, royalty free sydney harbour bridge night photos free download
+- Sidney:
+  https://www.piqsels.com/en/search?q=sydney+harbour+bridge+night
+  Piqsels, royalty free sydney harbour bridge night photos free download
