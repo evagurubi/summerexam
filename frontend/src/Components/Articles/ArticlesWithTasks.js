@@ -8,12 +8,14 @@ const ArticlesWithTasks = () => {
   const [inputText, setInputText] = useState("");
   const [query, setQuery] = useState("");
 
+  //User can set whether they want to search the keywords or the content of the article
   const handleSearchBy = () => {
     setInputText("");
     setQuery("");
     setKeywordSearch(!keywordSearch);
   };
 
+  //Based on type of search, request params are set
   const handleSearch = () => {
     if (keywordSearch) {
       setQuery(`keyword=${inputText}`);
@@ -22,6 +24,7 @@ const ArticlesWithTasks = () => {
     }
   };
 
+  //Without request params all articles are fetched
   const requestOptions = {
     method: "GET",
     headers: {

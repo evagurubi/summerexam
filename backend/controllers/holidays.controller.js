@@ -22,7 +22,7 @@ exports.uslist = async (req, res) => {
 
 //Sends back holiday in Australia on given day
 exports.auslist = async (req, res) => {
-  //  console.log("req3");
+  console.log("req3");
   await Ausholiday.createAusholiday(req).then((result) => {
     //  console.log("controller", result);
     res.json({ message: result });

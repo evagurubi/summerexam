@@ -7,6 +7,8 @@ function USHoliday({ USdata }) {
     holidayType = holidayType.join(" ") + " holiday";
   else holidayType = USdata.type.toLowerCase();
   console.log(holidayType);
+
+  //Returns holiday or without one a standard text
   return (
     <div>
       {USdata.name !== "" ? (

@@ -19,7 +19,7 @@ const Nav = ({ user, setUser }) => {
     setUser(null);
     closeMobileMenu();
   };
-
+  //Navbar only displays certain links for logged-in users. Mobile nav-menu classes and icons.
   return (
     <nav className="navbar">
       <div className="navbar-container container">

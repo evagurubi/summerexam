@@ -10,6 +10,7 @@ const Contributions = () => {
   const [photoURLData, setPhotoURLData] = useState("");
   const [originalURLData, setOriginalURLData] = useState("");
 
+  //Protected route only for logged-in users to post articles/activities
   useEffect(() => {
     const requestOptions = {
       method: "POST",
@@ -19,7 +20,7 @@ const Contributions = () => {
       },
       body: JSON.stringify(formData),
     };
-
+    //Post request sent, after that textareas reset to placeholders
     if (formData) {
       fetch("http://localhost:5000/api/articles", requestOptions)
         .then((response) => response.text())

@@ -64,7 +64,7 @@ exports.removeUser = (req, res) => {
 
 //Sends back account info to user
 exports.listUser = (req, res) => {
-  //console.log(req.header("auth-token"));
+  console.log(req.header("auth-token"));
   const decoded = jwt_decode(req.header("auth-token"));
 
   User.listUser(decoded.id).then((result) => {

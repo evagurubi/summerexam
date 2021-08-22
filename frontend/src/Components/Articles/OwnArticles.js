@@ -7,6 +7,7 @@ import "./Articles.css";
 function OwnArticles() {
   const [ownData, setOwnData] = useState(null);
 
+  //Puts auth-token in headers for protected route. Will return user's own articles only
   const requestOptions = {
     method: "GET",
     headers: {

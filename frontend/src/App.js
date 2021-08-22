@@ -23,7 +23,7 @@ function App() {
       return;
     }
   }, []);
-
+  //Protected routes are only available for logged-in users. Also protected by verifying JWT token at backend.
   return (
     <Router>
       <div className="App">

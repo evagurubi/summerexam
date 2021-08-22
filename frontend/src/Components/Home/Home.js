@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
 import London_scene from "../../Images/London_scene.jpg";
+
+//Welcome text with London scene in background
 const Home = () => {
   return (
     <div className="homecontainer">

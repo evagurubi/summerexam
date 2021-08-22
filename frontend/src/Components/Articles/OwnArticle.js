@@ -24,7 +24,7 @@ function OwnArticle({ ownTask, fetchOwnData }) {
     setFormData(newData);
     // console.log(newData);
   };
-
+  //Article can be deleted, identification by _id request parameter
   const handleDelete = () => {
     const options = {
       method: "DELETE",
@@ -41,6 +41,7 @@ function OwnArticle({ ownTask, fetchOwnData }) {
       });
   };
 
+  //Article can be modified, identification by _id request parameter
   useEffect(() => {
     const requestOptions = {
       method: "PATCH",
@@ -61,6 +62,7 @@ function OwnArticle({ ownTask, fetchOwnData }) {
       });
   }, [formData]);
 
+  //Form is used to display user's own articles so that they can be modified
   return (
     <div className="article">
       <form className="form">

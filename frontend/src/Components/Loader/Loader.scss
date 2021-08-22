@@ -1,5 +1,6 @@
 @import "../../Styles/variables.scss";
 
+//Standard loading spinner using white and the second darkest colour of the page, placed in the middle
 .loader:before {
   content: "";
   box-sizing: border-box;

@@ -9,9 +9,11 @@ const ArticleWithTask = ({ article }) => {
     if (articleNeeded) setArticleNeeded(false);
   };
 
+  //Tasks can be introduced gradually, by clicking on buttons, further features appear. Buttons show clear instructions depending on state.
   return (
     <div className="article">
       <h3>{article.title}</h3>
+
       <button onClick={handleActivity}>
         {warmerNeeded ? "HIDE ACTIVITIES" : "SHOW ACTIVITIES"}
       </button>

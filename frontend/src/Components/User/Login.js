@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
+import Loader from "../Loader/Loader";
 
 const Login = () => {
+  //Code parameter is gained from URL and sent to backend in post request for google authentication. Logged in users are sent back to articles with tasks page
   const code = new URL(window.location.href).searchParams.get("code");
 
   const token = { code: code };
@@ -23,7 +25,7 @@ const Login = () => {
 
   return (
     <div>
-      <h1>Loading...</h1>
+      <Loader />
     </div>
   );
 };

@@ -5,7 +5,7 @@ import "./Account.css";
 
 function OwnAccount({ setUser }) {
   const [myData, setMyData] = useState(null);
-
+  //Logged-in user's account data fetched from backend
   const requestOptions = {
     method: "GET",
     headers: {
@@ -21,7 +21,7 @@ function OwnAccount({ setUser }) {
         console.log(data);
       });
   };
-
+  //User can delete own account by clicking on delete button
   const deleteAccount = () => {
     const options = {
       method: "DELETE",
@@ -44,7 +44,7 @@ function OwnAccount({ setUser }) {
   useEffect(() => {
     fetchMyData();
   }, []);
-
+  //Account data with Sydney scene in background
   return (
     <div className="accountcontainer">
       <img src={Sydney} id="sydneyimage" />

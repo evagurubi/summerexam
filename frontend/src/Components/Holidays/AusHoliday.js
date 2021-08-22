@@ -7,6 +7,7 @@ function AusHoliday({ Ausdata }) {
     holidayType = holidayType.join(" ") + " holiday";
   else holidayType = Ausdata.type.toLowerCase();
 
+  //Returns holiday or without one a standard text
   return (
     <div>
       {Ausdata.name !== "" ? (
