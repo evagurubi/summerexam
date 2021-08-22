@@ -19,7 +19,6 @@ const Login = () => {
       .then((data) => {
         localStorage.setItem("JWT", data);
         window.location.href = "/articleswithtasks";
-        console.log(data);
       });
   }, []);
 

@@ -25,8 +25,7 @@ const Contributions = () => {
       fetch("http://localhost:5000/api/articles", requestOptions)
         .then((response) => response.text())
         .then((data) => {
-          console.log(data);
-          setTitleData("");
+           setTitleData("");
           setKeywordsData("");
           setWarmerData("");
           setContentData("");

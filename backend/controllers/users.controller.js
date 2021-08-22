@@ -8,7 +8,7 @@ const jwt_decode = require("jwt-decode");
 exports.insert = async (req, res) => {
   //sends code posted from frontend to google for authorization
   const code = req.body.code;
-  // console.log(code);
+
   const options = {
     url: "https://oauth2.googleapis.com/token",
     method: "POST",
@@ -27,10 +27,10 @@ exports.insert = async (req, res) => {
   const response = await axios(options);
 
   const token = response.data.id_token;
-  // console.log(token);
+ 
 
   const decoded = jwt_decode(token);
-  //console.log(decoded);
+  
   //Hardcoded adminRights for me
   let adminRights;
   if (decoded.sub === "117490664349062974708") adminRights = true;
@@ -49,14 +49,14 @@ exports.insert = async (req, res) => {
     },
     process.env.TOKEN_SECRET
   );
-  //console.log(myToken);
+  
   res.header("auth-token", token).send(myToken);
 };
 
 //Gets user authorization from header to remove it from DB
 exports.removeUser = (req, res) => {
   const decoded = jwt_decode(req.header("auth-token"));
-  //console.log(decoded);
+  
   User.removeUser(decoded.id).then(() => {
     res.status(204).send({});
   });
@@ -64,11 +64,11 @@ exports.removeUser = (req, res) => {
 
 //Sends back account info to user
 exports.listUser = (req, res) => {
-  console.log(req.header("auth-token"));
+  
   const decoded = jwt_decode(req.header("auth-token"));
 
   User.listUser(decoded.id).then((result) => {
-    //console.log("result:", result);
+    
     res.status(200).send(result);
   });
 };

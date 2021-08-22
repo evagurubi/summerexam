@@ -7,11 +7,11 @@ import "./Holidays.css";
 
 function Holidays() {
   let dateObj = new Date();
-  console.log(dateObj);
+  
   let month = dateObj.getUTCMonth() + 1; //months from 1-12
-  //dateObj.getUTCMonth() + 1; //months from 1-12
+  
   let day = dateObj.getUTCDate();
-  //dateObj.getUTCDate();
+  
   let year = dateObj.getUTCFullYear();
 
   let weekday = new Array(7);
@@ -39,7 +39,7 @@ function Holidays() {
         return res.json();
       })
       .then((json) => {
-        console.log(json);
+        
         setUKdata(json);
       });
   };
@@ -53,7 +53,7 @@ function Holidays() {
         return res.json();
       })
       .then((json) => {
-        console.log(json);
+       
         setUSdata(json);
       });
   };
@@ -67,7 +67,7 @@ function Holidays() {
         return res.json();
       })
       .then((json) => {
-        console.log(json);
+       
         setAusdata(json);
       });
   };

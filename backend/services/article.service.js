@@ -8,11 +8,11 @@ exports.list = (keyword, content) => {
         .sort({ $natural: -1 })
         .exec(function (err, articles) {
           if (err) {
-            //console.log(err);
+            
             reject(err);
           } else {
             resolve(articles);
-            // console.log(articles);
+          
           }
         });
     }
@@ -22,11 +22,11 @@ exports.list = (keyword, content) => {
         .sort({ $natural: -1 })
         .exec(function (err, articles) {
           if (err) {
-            //console.log(err);
+            
             reject(err);
           } else {
             resolve(articles);
-            // console.log(articles);
+            
           }
         });
     } else
@@ -34,11 +34,11 @@ exports.list = (keyword, content) => {
         .sort({ $natural: -1 })
         .exec(function (err, articles) {
           if (err) {
-            //console.log(err);
+            
             reject(err);
           } else {
             resolve(articles);
-            // console.log(articles);
+            
           }
         });
   });
@@ -53,11 +53,11 @@ exports.listarticlepages = (perPage, page) => {
       .skip(perPage * page)
       .exec(function (err, articles) {
         if (err) {
-          //console.log(err);
+          
           reject(err);
         } else {
           resolve(articles);
-          // console.log(articles);
+          
         }
       });
   });
@@ -73,8 +73,6 @@ exports.createArticle = async (articleBody, id) => {
 //DB queries for user's own articles
 exports.findByUserID = (id) => {
   return Article.find({ userId: id }).then((result) => {
-    //result = result.toJSON();
-
     return result;
   });
 };

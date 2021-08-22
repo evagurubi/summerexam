@@ -1,11 +1,12 @@
 @import "../../Styles/variables.scss";
+//Area under the nav bar
 .accountscontainer {
   position: relative;
   height: 85vh;
 
   margin: 0 auto;
 }
-
+//Provides backgound for the page
 #sydneyimage {
   position: fixed;
   top: 0;
@@ -26,7 +27,7 @@
   align-items: center;
   justify-content: center;
 }
-
+//The "card"
 .accountcontent {
   margin: 0 1.5rem;
   min-height: 40%;

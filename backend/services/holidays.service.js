@@ -17,7 +17,7 @@ exports.createUKholiday = async (req) => {
   let response = await axios.get(
     `https://holidays.abstractapi.com/v1/?api_key=f1fab01a5ea24ac7afd5eecb600df352&country=GB&year=${year}&month=${month}&day=${day}`
   );
-  //console.log(response.data);
+ 
   let holidayObject;
   if (response.data.length === 0)
     holidayObject = {
@@ -33,7 +33,7 @@ exports.createUKholiday = async (req) => {
     };
   const ukholiday = new UKholiday(holidayObject);
   ukholiday.save();
-  //console.log("service", ukholiday);
+  
   return holidayObject;
 };
 
@@ -51,7 +51,7 @@ exports.createUSholiday = async (req) => {
   let response = await axios.get(
     `https://holidays.abstractapi.com/v1/?api_key=f1fab01a5ea24ac7afd5eecb600df352&country=US&year=${year}&month=${month}&day=${day}`
   );
-  console.log("Comes back from API", response.data);
+ 
   let holidayObject;
   if (response.data.length === 0)
     holidayObject = {
@@ -67,7 +67,7 @@ exports.createUSholiday = async (req) => {
     };
   const usholiday = new USholiday(holidayObject);
   usholiday.save();
-  //console.log("service", ukholiday);
+  
   return holidayObject;
 };
 
@@ -85,7 +85,7 @@ exports.createAusholiday = async (req) => {
   let response = await axios.get(
     `https://holidays.abstractapi.com/v1/?api_key=f1fab01a5ea24ac7afd5eecb600df352&country=AU&year=${year}&month=${month}&day=${day}`
   );
-  //console.log(response.data);
+  
   let holidayObject;
   if (response.data.length === 0)
     holidayObject = {
@@ -101,6 +101,6 @@ exports.createAusholiday = async (req) => {
     };
   const ausholiday = new Ausholiday(holidayObject);
   ausholiday.save();
-  //console.log("service", ukholiday);
+  
   return holidayObject;
 };

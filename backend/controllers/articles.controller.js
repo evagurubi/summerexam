@@ -25,7 +25,7 @@ exports.listall = (req, res) => {
   let keyword = null;
   let content = null;
   if (req.query) {
-    //  console.log(req.query);
+    
     if (req.query.keyword) {
       keyword = req.query.keyword;
     }
@@ -49,14 +49,13 @@ exports.insert = (req, res) => {
 //It sends back articles posted by logged-in user
 exports.listown = (req, res) => {
   const decoded = jwt_decode(req.header("auth-token"));
-  //console.log(decoded);
   if (decoded.isAdmin === true)
     Article.list().then((result) => {
       res.status(200).send(result);
     });
   else
     Article.findByUserID(decoded.id).then((result) => {
-      console.log("sent2");
+      
       res.status(200).send(result);
     });
 };

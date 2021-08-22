@@ -1,5 +1,5 @@
 @import "../Styles/variables.scss";
-
+//Horizontal menu
 .navbar {
   display: flex;
   justify-content: center;
@@ -25,7 +25,7 @@
   padding-left: 20px;
   background-color: $dark1;
 }
-
+//Contains name and logo
 .navbar-logo {
   color: #fff;
   justify-self: start;
@@ -41,6 +41,7 @@
   margin-right: 0.5rem;
 }
 
+//Contains links
 .nav-menu {
   display: flex;
   align-items: center;
@@ -57,6 +58,7 @@
   min-height: max-content;
 }
 
+//White line when the mouse is over the element (not the last one, which is the button)
 .nav-item:not(:last-child):hover {
   border-bottom: 2px solid #fff;
 }
@@ -69,11 +71,12 @@
   padding: 0.5rem 1rem;
   height: 100%;
 }
-
+//Menu icon class for mobile menu
 .fa-bars {
   color: #fff;
 }
 
+//No menu icon over 850px
 .menu-icon {
   display: none;
 }
@@ -84,7 +87,7 @@
 .navbarbutton:hover {
   @include hoverbutton($lighter1);
 }
-
+//Scaled down navbar under 1050px
 @media screen and (max-width: 1050px) {
   .navbar-container {
     padding-left: 10px;
@@ -136,19 +139,20 @@
     color: $dark1;
   }
 
-  .nav-links:hover {
-    color: #fff;
-    /* transform: scale(1.2);
-    transition: all 0.1s ease;*/
-  }
+  
 
   .nav-item:first-child {
     margin-top: 50px;
   }
-
+//No white line on mobile screen at hover, colour of links white
   .nav-item:hover {
     border: none;
     width: 100%;
+  }
+
+  .nav-links:hover {
+    color: #fff;
+    
   }
 
   .navbar-logo {
@@ -174,6 +178,8 @@
     color: #fff;
     font-size: 2rem;
   }
+
+  //Navbar (menu) button colours change for mobile menu because of background
   .navbarbutton {
     @include button($dark1, $lighter1);
   }

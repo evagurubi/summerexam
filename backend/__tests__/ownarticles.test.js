@@ -3,9 +3,7 @@ const jwt = require("jsonwebtoken");
 const app = require("../server");
 const supertest = require("supertest");
 const request = supertest(app);
-const axios = require("axios");
-const MockAdapter = require("axios-mock-adapter");
-//const mock = new MockAdapter(axios);
+
 const db = require("./utils/db");
 const Article = require("../models/Article");
 
@@ -59,7 +57,7 @@ describe("It tests get requests to the /api/articles/own endpoint", () => {
     const response = await request
       .get("/api/articles/own")
       .set("auth-token", `${myToken2}`);
-    // console.log("res", response.body);
+    
     expect(articles.length).toEqual(2);
     expect(response.body.length).toEqual(0);
     expect(response.status).toBe(200);
@@ -116,7 +114,7 @@ describe("It tests get requests to the /api/articles/own endpoint", () => {
     const response = await request
       .get("/api/articles/own")
       .set("auth-token", `${myToken}`);
-    // console.log("res", response.body);
+    
     expect(articles.length).toEqual(3);
     expect(response.body.length).toEqual(2);
     expect(response.body[0].warmer).toBe("newwarmerquestion");
@@ -175,7 +173,7 @@ describe("It tests get requests to the /api/articles/own endpoint", () => {
     const response = await request
       .get("/api/articles/own")
       .set("auth-token", `${myToken}`);
-    // console.log("res", response.body);
+  
     expect(articles.length).toEqual(3);
     expect(response.body.length).toEqual(3);
     expect(response.body[2].warmer).toBe("newwarmerquestion");
@@ -254,5 +252,51 @@ describe("Tests PATCH and DELETE requests to /api/articles/own endpoint", () => 
 
     expect(response.status).toBe(204);
     expect(articleDB.length).toBe(0);
+  });
+
+  it("Should delete only the requested article (with proper id) from DB ", async () => {
+    const someone = { id: "someone" };
+    const myToken = jwt.sign(someone, process.env.TOKEN_SECRET);
+    const newArticle = {
+      title: "newtitle",
+      keywords: "newkeyword",
+      warmer: "newwarmerquestion",
+      content: "somethingverylong",
+      photoURL: "newphotourl",
+      originalURL: "newarticleurl",
+    };
+
+    const newArticle2 = {
+      title: "newtitle2",
+      keywords: "newkeyword2",
+      warmer: "newwarmerquestion2",
+      content: "somethingverylong2",
+      photoURL: "newphotourl2",
+      originalURL: "newarticleurl2",
+    };
+
+    await request
+      .post("/api/articles")
+      .set("auth-token", `${myToken}`)
+      .send(newArticle);
+
+    await request
+      .post("/api/articles")
+      .set("auth-token", `${myToken}`)
+      .send(newArticle2);
+      
+
+    const articles1 = await Article.find();
+    const testID = articles1[0]._id;
+
+    const response = await request
+      .delete(`/api/articles/own/${testID}`)
+      .set("auth-token", `${myToken}`);
+
+    const articles2 = await Article.find();
+
+    expect(response.status).toBe(204);
+    expect(articles2.length).toBe(1);
+    expect(articles2[0].title).toBe("newtitle2")
   });
 });

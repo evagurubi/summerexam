@@ -21,10 +21,10 @@ describe("Tests the test environment", () => {
   });
 
   it("Gets the test endpoint", async () => {
-    // Sends GET Request to /test endpoint
+    
     //when
     const response = await request.get("/api");
-    //request.get
+    
     //then
     expect(response.status).toBe(200);
     expect(response.body.message).toBe("We are on home");

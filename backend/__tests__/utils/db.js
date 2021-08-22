@@ -12,7 +12,7 @@ exports.connectToDatabase = async () => {
     useCreateIndex: true,
     useFindAndModify: false,
   });
-  //console.log("connected");
+  
 };
 //Remove all data from all db collections
 exports.clearDatabase = async () => {

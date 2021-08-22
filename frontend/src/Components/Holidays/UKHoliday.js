@@ -5,7 +5,7 @@ function UKHoliday({ UKdata }) {
   if (holidayType[holidayType.length - 1] !== "holiday")
     holidayType = holidayType.join(" ") + " holiday";
   else holidayType = UKdata.type.toLowerCase();
-  console.log(holidayType);
+  
 
   //Returns holiday or without one a standard text
   return (

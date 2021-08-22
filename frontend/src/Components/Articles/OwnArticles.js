@@ -20,8 +20,7 @@ function OwnArticles() {
       .then((response) => response.json())
       .then((data) => {
         setOwnData(data);
-        console.log(data);
-      });
+             });
   };
 
   useEffect(() => {

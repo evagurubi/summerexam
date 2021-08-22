@@ -22,8 +22,7 @@ function OwnArticle({ ownTask, fetchOwnData }) {
       originalURL: originalURLData,
     };
     setFormData(newData);
-    // console.log(newData);
-  };
+      };
   //Article can be deleted, identification by _id request parameter
   const handleDelete = () => {
     const options = {
@@ -58,7 +57,7 @@ function OwnArticle({ ownTask, fetchOwnData }) {
     )
       .then((response) => response.text())
       .then((data) => {
-        // console.log(data);
+         console.log(data);
       });
   }, [formData]);
 

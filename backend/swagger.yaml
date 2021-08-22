@@ -4,8 +4,8 @@ info:
   title: Language School English Department
   description: This is a language school English department collaboration server.
 servers:
-  - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/e8637/exam/1.0.0
+  - description: Virtual Staffroom API documentation
+  
   - url: https://localhost:5000/api
 
 tags:
@@ -68,8 +68,8 @@ paths:
           schema:
             type: string
       responses:
-        "200":
-          description: "OK"
+        "204":
+          description: "No content success, user account deleted"
         "400":
           description: "Invalid status value"
 
@@ -115,7 +115,11 @@ paths:
               $ref: "#/components/schemas/Article"
       responses:
         "201":
-          description: Created
+          description: Article created
+        "400":
+          description: "Invalid status"
+        "401":
+          description: "Unauthorized"    
   /articles/withtasks:
     get:
       tags:
@@ -148,7 +152,9 @@ paths:
                 items:
                   $ref: "#/components/schemas/Article"
         "400":
-          description: "Invalid status value"
+          description: "Invalid status"
+        "401":
+          description: "Unauthorized" 
   /articles/own:
     get:
       tags:
@@ -171,7 +177,9 @@ paths:
                 items:
                   $ref: "#/components/schemas/Article"
         "400":
-          description: "Invalid status value"
+          description: "Invalid status"
+        "401":
+          description: "Unauthorized" 
         "404":
           description: "Article not found"
   /articles/own/{id}:
@@ -196,7 +204,9 @@ paths:
         "200":
           description: "OK"
         "400":
-          description: "Invalid status value"
+          description: "Invalid status"
+        "401":
+          description: "Unauthorized" 
         "404":
           description: "Article not found"
     delete:
@@ -220,7 +230,9 @@ paths:
         "200":
           description: "OK"
         "400":
-          description: "Invalid status value"
+          description: "Invalid status"
+        "401":
+          description: "Unauthorized" 
         "404":
           description: "Article not found"
   /holidays/uk:

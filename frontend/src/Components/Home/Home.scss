@@ -1,12 +1,12 @@
 @import "../Styles/variables.scss";
-
+//Area under the nav bar
 .homecontainer {
   position: relative;
   height: 85vh;
 
   margin: 0 auto;
 }
-
+//Provides backgound for the page
 #image {
   position: fixed;
   top: 0;
@@ -27,6 +27,8 @@
   align-items: center;
   justify-content: center;
 }
+
+//The "card"
 .introcontent {
   margin: 0 1.5rem;
   background: rgba($dark2, 0.8);

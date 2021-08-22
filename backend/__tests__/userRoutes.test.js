@@ -64,7 +64,7 @@ describe("Login route tests", () => {
     expect(users[0].name).toBe("Éva Gurubi");
   });
 
-  it("Should log in for two requests but put user in DB only once if second is not new user", async () => {
+  it("Should log in for both requests but put user in DB only once because second time they are not a new user", async () => {
     //given
     const token = {
       code: "Somebodywhowantstologin",

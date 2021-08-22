@@ -1,12 +1,12 @@
 @import "../../Styles/variables.scss";
-
+//Area under the nav bar
 .holidayscontainer {
   position: relative;
   height: 85vh;
 
   margin: 0 auto;
 }
-
+//Provides backgound for the page
 #nyimage {
   position: fixed;
   top: 0;
@@ -27,6 +27,8 @@
   align-items: center;
   justify-content: center;
 }
+
+//The "card"
 .holidayscontent {
   margin: 6rem 1.5rem;
   min-height: 450px;
@@ -44,6 +46,8 @@
   align-items: center;
   text-transform: uppercase;
 }
+
+//The div for gradually appearing holiday data lines
 .holidaysdata {
   position: absolute;
   top: 40%;
@@ -53,7 +57,7 @@
 h4 {
   margin-bottom: 20px;
 }
-
+//Holidays from different countries
 .ukh4 {
   animation: fadeIn 6s;
 }
@@ -71,7 +75,7 @@ h4 {
   position: absolute;
   bottom: 10%;
 }
-
+//Animation for different holiday lines
 @keyframes fadeIn {
   0% {
     opacity: 0;
