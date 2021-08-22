@@ -8,7 +8,7 @@ const jwt_decode = require("jwt-decode");
 exports.insert = async (req, res) => {
   //sends code posted from frontend to google for authorization
   const code = req.body.code;
-  //console.log(code);
+  // console.log(code);
   const options = {
     url: "https://oauth2.googleapis.com/token",
     method: "POST",

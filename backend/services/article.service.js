@@ -2,7 +2,7 @@ const Article = require("../models/Article");
 
 exports.list = (keyword, content) => {
   return new Promise((resolve, reject) => {
-    //With queryparameter keyword (chunks also apply because of regex) 
+    //For queryparameter keyword (chunks also apply because of regex)
     if (keyword) {
       Article.find({ keywords: { $regex: keyword, $options: "i" } })
         .sort({ $natural: -1 })
@@ -16,7 +16,7 @@ exports.list = (keyword, content) => {
           }
         });
     }
-    //With queryparameter content (chunks also apply because of regex)
+    //For queryparameter content (chunks also apply because of regex)
     if (content) {
       Article.find({ content: { $regex: content, $options: "i" } })
         .sort({ $natural: -1 })
@@ -72,8 +72,7 @@ exports.createArticle = async (articleBody, id) => {
 
 //DB queries for user's own articles
 exports.findByUserID = (id) => {
-  return Article.find({ userId: id })
-  .then((result) => {
+  return Article.find({ userId: id }).then((result) => {
     //result = result.toJSON();
 
     return result;

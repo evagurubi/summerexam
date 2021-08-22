@@ -38,7 +38,6 @@ const ArticlesWithTasks = () => {
     )
       .then((res) => {
         if (res.status !== 200) {
-          console.log(res);
           return "It is still loading";
         }
 

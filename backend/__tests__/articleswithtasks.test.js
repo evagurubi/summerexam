@@ -77,3 +77,97 @@ describe("Tests responses with authorization", () => {
     expect(response.body[0].photoURL).toBe("newphotourl");
   });
 });
+describe("Tests requests with keyword and content queryparameters", () => {
+  it("Should return article if keywords include the chunk in the queryparameter", async () => {
+    //given
+    const someone = { id: "someone" };
+    const myToken = jwt.sign({ someone }, process.env.TOKEN_SECRET);
+
+    const newArticle = {
+      title: "newtitle",
+      keywords: "newkeyword",
+      warmer: "newwarmerquestion",
+      content: "somethingverylong",
+      photoURL: "newphotourl",
+      originalURL: "newarticleurl",
+    };
+
+    const newArticle2 = {
+      title: "newtitle",
+      keywords: "something something else",
+      warmer: "newwarmerquestion",
+      content: "somethingverylong",
+      photoURL: "newphotourl",
+      originalURL: "newarticleurl",
+    };
+
+    await request
+      .post("/api/articles")
+      .set("auth-token", `${myToken}`)
+      .send(newArticle);
+
+    await request
+      .post("/api/articles")
+      .set("auth-token", `${myToken}`)
+      .send(newArticle2);
+
+    //when
+    const articles = await Article.find();
+    const response = await request
+      .get("/api/articles/withtasks?keyword=newkey")
+      .set("auth-token", `${myToken}`);
+
+    //then
+    expect(articles.length).toEqual(2);
+    expect(response.body.length).toEqual(1);
+    expect(response.body[0].photoURL).toBe("newphotourl");
+    expect(response.status).toBe(200);
+  });
+
+  it("Should return article if content contains the chunk in the queryparameter", async () => {
+    //given
+    const someone = { id: "someone" };
+    const myToken = jwt.sign({ someone }, process.env.TOKEN_SECRET);
+
+    const newArticle = {
+      title: "newtitle",
+      keywords: "newkeyword",
+      warmer: "newwarmerquestion",
+      content: "somethingverylong",
+      photoURL: "newphotourl",
+      originalURL: "newarticleurl",
+    };
+
+    const newArticle2 = {
+      title: "newtitle",
+      keywords: "something something else",
+      warmer: "newwarmerquestion",
+      content:
+        "Once upon a midnight dreary, while I pondered, weak and weary ... Only this and nothing more.",
+      photoURL: "newphotourl2",
+      originalURL: "newarticleurl",
+    };
+
+    await request
+      .post("/api/articles")
+      .set("auth-token", `${myToken}`)
+      .send(newArticle);
+
+    await request
+      .post("/api/articles")
+      .set("auth-token", `${myToken}`)
+      .send(newArticle2);
+
+    //when
+    const articles = await Article.find();
+    const response = await request
+      .get("/api/articles/withtasks?content=ponder")
+      .set("auth-token", `${myToken}`);
+
+    //then
+    expect(articles.length).toEqual(2);
+    expect(response.body.length).toEqual(1);
+    expect(response.body[0].photoURL).toBe("newphotourl2");
+    expect(response.status).toBe(200);
+  });
+});

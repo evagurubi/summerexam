@@ -122,6 +122,65 @@ describe("It tests get requests to the /api/articles/own endpoint", () => {
     expect(response.body[0].warmer).toBe("newwarmerquestion");
     expect(response.status).toBe(200);
   });
+
+  it("Should return array with all articles of every user only for GET request with proper auth-token from admin", async () => {
+    //given
+    const someone = { id: "117490664349062974708", isAdmin: true };
+    const myToken = jwt.sign(someone, process.env.TOKEN_SECRET);
+
+    const someoneelse = { id: "someoneelse" };
+    const myToken2 = jwt.sign(someoneelse, process.env.TOKEN_SECRET);
+
+    const newArticle = {
+      title: "newtitle",
+      keywords: "newkeyword",
+      warmer: "newwarmerquestion",
+      content: "somethingverylong",
+      photoURL: "newphotourl",
+      originalURL: "newarticleurl",
+    };
+    const newArticle2 = {
+      title: "newtitle2",
+      keywords: "newkeyword2",
+      warmer: "newwarmerquestion2",
+      content: "somethingverylong2",
+      photoURL: "newphotourl2",
+      originalURL: "newarticleurl2",
+    };
+    const newArticle3 = {
+      title: "newtitle3",
+      keywords: "newkeyword3",
+      warmer: "newwarmerquestion3",
+      content: "somethingverylong3",
+      photoURL: "newphotourl3",
+      originalURL: "newarticleurl3",
+    };
+
+    await request
+      .post("/api/articles")
+      .set("auth-token", `${myToken}`)
+      .send(newArticle);
+
+    await request
+      .post("/api/articles")
+      .set("auth-token", `${myToken}`)
+      .send(newArticle2);
+
+    await request
+      .post("/api/articles")
+      .set("auth-token", `${myToken2}`)
+      .send(newArticle3);
+
+    const articles = await Article.find();
+    const response = await request
+      .get("/api/articles/own")
+      .set("auth-token", `${myToken}`);
+    // console.log("res", response.body);
+    expect(articles.length).toEqual(3);
+    expect(response.body.length).toEqual(3);
+    expect(response.body[2].warmer).toBe("newwarmerquestion");
+    expect(response.status).toBe(200);
+  });
 });
 
 describe("Tests PATCH and DELETE requests to /api/articles/own endpoint", () => {

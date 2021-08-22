@@ -14,7 +14,7 @@
   align-items: center;
   flex-direction: column;
 }
-
+//Contains all the articles after mapping, tasks also in the relevant section
 .articleitems {
   width: 100%;
   display: grid;
@@ -22,6 +22,8 @@
   grid-auto-rows: max-content;
   padding: 10px;
 }
+
+//individual articles
 .article {
   margin: 10px;
   background-color: $dark2;
@@ -32,6 +34,8 @@
   align-items: center;
   flex-direction: column;
 }
+
+//For own articles to be updated or deleted
 .form {
   @include form(100%);
 }
@@ -42,6 +46,8 @@
 .contribution {
   margin-bottom: 20px;
 }
+
+//Larger textarea within own article and contribution forms for posting and updating articles
 .content {
   margin-top: 5px !important;
   width: 100%;
@@ -58,6 +64,14 @@
   margin: 20px;
 }
 
+//Extra links for further info on topics
+.link {
+  color: black;
+}
+
+.link:hover {
+  color: $lighter1;
+}
 input[id="submitchange"] {
   margin-top: 20px;
   width: 100%;
@@ -74,13 +88,7 @@ input[id="submitchange"]:hover {
   width: 80%;
   height: 35px;
 }
-.link {
-  color: black;
-}
 
-.link:hover {
-  color: $lighter1;
-}
 button {
   margin-top: 10px;
   @include button($lighter1, $dark2);
@@ -89,6 +97,8 @@ button {
 button:hover {
   @include hoverbutton($lighter1);
 }
+
+//Input div to select queryparam type and provide search content
 #inputdiv {
   display: flex;
   align-items: center;
