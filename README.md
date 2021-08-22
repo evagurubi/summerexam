@@ -34,26 +34,27 @@ The project was created using:
 
 ### Client side:
 
-`cd frontend` //navigates to frontend folder
-`npm install` //to install npm packages
-`npm start` //starts client side, runs on localhost:3000
+- `cd frontend` //navigates to frontend folder
+- `npm install` //to install npm packages
+- `npm start` //starts client side, runs on localhost:3000
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### Backend:
 
-`cd backend` //navigates to backend folder
-`npm install` //to install npm packeges
+- `cd backend` //navigates to backend folder
+- `npm install` //to install npm packeges
 
 -Create a `.env` file. It should contain the following elements:
-`DB_CONNECT = YOUR_MONGODB_CONNECTION`
-`TOKEN_SECRET = YOUR_JWT_SECRET`
-`GOOGLE_CLIENT_ID = YOUR_GOOGLE_CLIENT_ID`
-`GOOGLE_CLIENT_SECRET = YOUR_GOOGLE_CLIENT_SECRET`
-`MAIL_USERNAME = YOUR_MAIL_USERNAME` //to send emails from to new users via nodemailer
-`MAIL_PASSWORD = YOUR_MAIL_PASSWORD`
 
-`node start.js` //starts server, runs on localhost:5000
+- `DB_CONNECT = YOUR_MONGODB_CONNECTION`
+- `TOKEN_SECRET = YOUR_JWT_SECRET`
+- `GOOGLE_CLIENT_ID = YOUR_GOOGLE_CLIENT_ID`
+- `GOOGLE_CLIENT_SECRET = YOUR_GOOGLE_CLIENT_SECRET`
+- `MAIL_USERNAME = YOUR_MAIL_USERNAME` //to send emails from to new users via nodemailer
+- `MAIL_PASSWORD = YOUR_MAIL_PASSWORD`
+
+- `node start.js` //starts server, runs on localhost:5000
 
 ## Sources
 
