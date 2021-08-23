@@ -20,12 +20,11 @@ exports.list = (req, res) => {
   });
 };
 
-//It sends back article and tasks, links etc., possible search by keyword or by content
+//It sends back articles and tasks, links etc., possible search by keyword or by content
 exports.listall = (req, res) => {
   let keyword = null;
   let content = null;
   if (req.query) {
-    
     if (req.query.keyword) {
       keyword = req.query.keyword;
     }
@@ -55,7 +54,6 @@ exports.listown = (req, res) => {
     });
   else
     Article.findByUserID(decoded.id).then((result) => {
-      
       res.status(200).send(result);
     });
 };

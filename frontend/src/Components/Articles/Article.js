@@ -2,7 +2,7 @@ import React from "react";
 import "./Articles.css";
 
 const Article = ({ el }) => {
-  //Not a protected route. Visitors see only title and content of article
+  // Visitors see only title and content of article (Visitors not logged in only see this)
   return (
     <div className="article">
       <h4>{el.title}</h4>
