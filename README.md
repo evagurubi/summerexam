@@ -4,7 +4,7 @@
 
 - [Overview](#overview)
 - [Key functionalities](#key-functionalities)
-- [Technologiew](#technologies)
+- [Technologies](#technologies)
 - [Launch](#launch)
 - [Sources](#sources)
 
@@ -42,6 +42,10 @@ The project was created using:
 - `npm start` //starts client side, runs on localhost:3000
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### Google authentication
+
+Users of the application can authenticate themselves with Google. Register on the Google developer console with the help of [this link](https://developers.google.com/identity/protocols/oauth2/openid-connect) and obtain your own GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET, which you should save in your `.env` file (see the details below). Your redirect_uri should be set to "http://localhost:3000/login".
 
 ### Backend:
 
