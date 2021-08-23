@@ -54,15 +54,15 @@ Users of the application can authenticate themselves with Google. Register on th
 
 - Create a `.env` file. It should contain the following elements:
 
-- `DB_CONNECT = YOUR_MONGODB_CONNECTION`
-- `TOKEN_SECRET = YOUR_JWT_SECRET`
-- `GOOGLE_CLIENT_ID = YOUR_GOOGLE_CLIENT_ID`
-- `GOOGLE_CLIENT_SECRET = YOUR_GOOGLE_CLIENT_SECRET`
-- `MAIL_USERNAME = YOUR_MAIL_USERNAME` //to send emails from to new users via nodemailer
-- `MAIL_PASSWORD = YOUR_MAIL_PASSWORD`
+  - `DB_CONNECT = YOUR_MONGODB_CONNECTION`
+  - `TOKEN_SECRET = YOUR_JWT_SECRET`
+  - `GOOGLE_CLIENT_ID = YOUR_GOOGLE_CLIENT_ID`
+  - `GOOGLE_CLIENT_SECRET = YOUR_GOOGLE_CLIENT_SECRET`
+  - `MAIL_USERNAME = YOUR_MAIL_USERNAME` //to send emails from to new users via nodemailer
+  - `MAIL_PASSWORD = YOUR_MAIL_PASSWORD`
 
 - Start the server:
-- `node start.js` //starts server, runs on localhost:5000
+  - `node start.js` //starts server, runs on localhost:5000
 
 ### Docker
 
