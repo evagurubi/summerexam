@@ -52,7 +52,7 @@ Users of the application can authenticate themselves with Google. Register on th
 - `cd backend` //navigates to backend folder
 - `npm install` //to install npm packeges
 
--Create a `.env` file. It should contain the following elements:
+- Create a `.env` file. It should contain the following elements:
 
 - `DB_CONNECT = YOUR_MONGODB_CONNECTION`
 - `TOKEN_SECRET = YOUR_JWT_SECRET`
@@ -61,6 +61,7 @@ Users of the application can authenticate themselves with Google. Register on th
 - `MAIL_USERNAME = YOUR_MAIL_USERNAME` //to send emails from to new users via nodemailer
 - `MAIL_PASSWORD = YOUR_MAIL_PASSWORD`
 
+- Start the server:
 - `node start.js` //starts server, runs on localhost:5000
 
 ### Docker
