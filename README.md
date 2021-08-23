@@ -61,9 +61,19 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### Docker
 
-You can build and run the app with [Docker Compose](https://docs.docker.com/compose/), which is included with [Docker Desktop](https://docs.docker.com/desktop/). You can install it following [these installation instructions](https://docs.docker.com/compose/install/).
+From your root folder:
 
-After building the images, run `docker-compose up -d`. The built and running container runs on [http://localhost:3000](http://localhost:3000) in your browser.
+- `cd frontend` //navigates to backend folder
+- `docker build -t summerexam_frontend .` //builds frontend image
+
+From your root folder:
+
+- `cd backend` //navigates to backend folder
+- `docker build -t summerexam_backend .` //builds backend image
+
+You can run the app with [Docker Compose](https://docs.docker.com/compose/), which is included with [Docker Desktop](https://docs.docker.com/desktop/). You can install it following [these installation instructions](https://docs.docker.com/compose/install/).
+
+After building the images, run `docker-compose up -d` from your root folder. The built and running container runs on [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Sources
 
