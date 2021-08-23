@@ -59,6 +59,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 - `node start.js` //starts server, runs on localhost:5000
 
+### Docker
+
+You can build and run the app with [Docker Compose](https://docs.docker.com/compose/), which is included with [Docker Desktop](https://docs.docker.com/desktop/). You can install it following [these installation instructions](https://docs.docker.com/compose/install/).
+
+After building the images, run `docker-compose up -d`. The built and running container runs on [http://localhost:3000](http://localhost:3000) in your browser.
+
 ## Sources
 
 #### Background photos:
