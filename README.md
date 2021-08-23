@@ -33,7 +33,7 @@ The project was created using:
 
 ## Launch
 
-`git clone https://github.com/evagurubi/summerexam`
+` git clone https://github.com/CodecoolGlobal/fapi-exam-project-2-general-evagurubi.git`
 
 ### Client side:
 
@@ -62,7 +62,12 @@ Users of the application can authenticate themselves with Google. Register on th
   - `MAIL_PASSWORD = YOUR_MAIL_PASSWORD`
 
 - Start the server:
+
   - `node start.js` //starts server, runs on localhost:5000
+
+- To run tests in the backend folder use the command `npm test`
+
+- You can view the Swagger documentation on http://localhost:5000/docs/
 
 ### Docker
 
