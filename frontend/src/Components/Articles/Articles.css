@@ -28,8 +28,8 @@
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (minmax(0, 1fr))[3];
+      grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-auto-rows: -webkit-max-content;
   grid-auto-rows: max-content;
   padding: 10px;
@@ -53,6 +53,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  text-align: justify;
 }
 
 .form {
@@ -97,6 +98,14 @@
   margin: 20px;
 }
 
+.link {
+  color: black;
+}
+
+.link:hover {
+  color: #d9e0df;
+}
+
 input[id="submitchange"] {
   margin-top: 20px;
   width: 100%;
@@ -124,14 +133,6 @@ input[id="submitchange"]:hover {
   margin: 20px 0;
   width: 80%;
   height: 35px;
-}
-
-.link {
-  color: black;
-}
-
-.link:hover {
-  color: #d9e0df;
 }
 
 button {

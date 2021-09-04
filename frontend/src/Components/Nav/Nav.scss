@@ -1,4 +1,4 @@
-@import "../Styles/variables.scss";
+@import "../../Styles/variables.scss";
 //Horizontal menu
 .navbar {
   display: flex;
@@ -45,10 +45,10 @@
 .nav-menu {
   display: flex;
   align-items: center;
-  justify-content: center;
+  // justify-content: center;
   list-style: none;
   text-align: center;
-  justify-content: end;
+  // justify-content: end;
   background-color: $dark1;
 }
 
@@ -139,12 +139,10 @@
     color: $dark1;
   }
 
-  
-
   .nav-item:first-child {
     margin-top: 50px;
   }
-//No white line on mobile screen at hover, colour of links white
+  //No white line on mobile screen at hover, colour of links white
   .nav-item:hover {
     border: none;
     width: 100%;
@@ -152,7 +150,6 @@
 
   .nav-links:hover {
     color: #fff;
-    
   }
 
   .navbar-logo {

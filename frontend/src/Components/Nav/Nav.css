@@ -62,14 +62,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   list-style: none;
   text-align: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
   background-color: #636e6c;
 }
 
@@ -196,17 +190,15 @@
             align-items: center;
     color: #636e6c;
   }
-  .nav-links:hover {
-    color: #fff;
-    /* transform: scale(1.2);
-    transition: all 0.1s ease;*/
-  }
   .nav-item:first-child {
     margin-top: 50px;
   }
   .nav-item:hover {
     border: none;
     width: 100%;
+  }
+  .nav-links:hover {
+    color: #fff;
   }
   .navbar-logo {
     position: absolute;

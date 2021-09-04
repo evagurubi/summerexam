@@ -6,7 +6,7 @@
 }
 
 body {
-  width: 100%;
+  width: 100vw;
   background-color: #d9e0df;
   font-family: "Lato", sans-serif;
 }
